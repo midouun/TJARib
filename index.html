@@ -4,967 +4,425 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- تحسينات SEO -->
-    <title>مكتبة الحقوق - Law by Mouhamed & Swima | ملخصات قانونية لطلاب الجامعة</title>
-    <meta name="description" content="ملخصات قانونية موثوقة للطلاب - السنة الأولى، الثانية والثالثة ليسانس. أسعار مناسبة وجودة عالية.">
-    <meta name="keywords" content="ملخصات قانونية, طلاب حقوق, السنة الأولى قانون, السنة الثانية قانون, السنة الثالثة قانون, ملخصات جامعية, دروس حقوق">
-    <meta name="author" content="Law by Mouhamed & Swima">
-    <meta name="robots" content="index, follow">
+    <title>مكتبة الحقوق - Law by Mouhamed & Swima</title>
+    <meta name="description" content="ملخصات قانونية شاملة وحديثة لطلبة الحقوق في الجزائر.">
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="مكتبة الحقوق - ملخصات قانونية لطلاب الجامعة">
-    <meta property="og:description" content="ملخصات قانونية موثوقة للطلاب - جميع السنوات الدراسية">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="LAW.jpeg">
-    
-    <!-- تحسينات الأداء -->
-    <link rel="preload" href="LAW.jpeg" as="image">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary-color: #2c3e50;
-            --primary-dark: #1a252f;
             --accent-color: #27ae60;
-            --accent-hover: #229954;
             --gold-color: #d4af37;
-            --bg-color: #f0f2f5;
+            --bg-color: #f4f7f6;
             --white: #ffffff;
-            --fb-color: #1877f2;
-            --insta-bg: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 15px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --error-color: #e74c3c;
-            --success-color: #27ae60;
+            --text-dark: #333;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', sans-serif;
             background-color: var(--bg-color);
-            color: #333;
-            padding-bottom: 90px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeSpeed;
+            color: var(--text-dark);
+            padding-bottom: 100px; /* مساحة للشريط السفلي */
+            overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- الهيدر --- */
+        /* --- الهيدر بتصميم 2026 --- */
         header {
             background: var(--white);
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 30px;
-            position: sticky;
-            top: 0;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            position: relative;
             z-index: 100;
         }
-        
+
         .logo-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid var(--gold-color);
-            object-fit: cover;
-            margin: 0 auto 12px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
+            width: 130px; height: 130px; border-radius: 50%;
+            border: 4px solid var(--gold-color); object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
+
+        h1 { color: var(--primary-color); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
         
-        .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-        
-        h1 { 
-            color: var(--primary-color);
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .social-header { 
+        /* --- أيقونات التواصل الاجتماعي الحديثة (2026 Style) --- */
+        .social-header {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
-            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
         }
-        
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .social-btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-insta { background: var(--insta-bg); }
-        .btn-fb { background-color: var(--fb-color); }
 
-        /* --- وصف الموقع --- */
-        .site-description {
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
+        .icon-container {
+            position: relative;
+            width: 50px; /* حجم مصغر للهيدر */
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .site-description h2 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+
+        .icon-container svg {
+            width: 24px; height: 24px; z-index: 2;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
-        
-        .site-description p {
-            color: #555;
-            font-size: 1.05rem;
-            line-height: 1.7;
+
+        /* إنستغرام */
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background-size: 200% 200%;
+            animation: gradientMove 6s ease infinite;
+        }
+        .instagram::before {
+            content: ''; position: absolute; inset: 0; border-radius: 16px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%); opacity: 0.5;
+        }
+        .instagram svg path { fill: #ffffff; }
+
+        /* فيسبوك */
+        .facebook {
+            background: linear-gradient(135deg, #0064e0 0%, #1877f2 50%, #4294ff 100%);
+            overflow: hidden;
+        }
+        .facebook::after {
+            content: ''; position: absolute; width: 40px; height: 40px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -5px; right: -5px; border-radius: 50%;
+        }
+        .facebook svg path { fill: #ffffff; }
+
+        /* تفاعل الأيقونات */
+        .icon-container:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .instagram:hover { box-shadow: 0 10px 25px rgba(220, 39, 67, 0.4); }
+        .facebook:hover { box-shadow: 0 10px 25px rgba(24, 119, 242, 0.4); }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
         }
 
         /* --- أقسام السنوات --- */
-        .year-section { 
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-            padding: 0 15px;
-        }
-        
+        .year-section { max-width: 1100px; margin: 0 auto 50px auto; padding: 0 20px; }
+        .year-header { text-align: center; margin-bottom: 25px; }
         .year-title {
-            background: linear-gradient(135deg, var(--primary-color), #34495e);
-            color: white;
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .year-header { 
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .product-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .product-card.selected {
-            border-color: var(--accent-color);
-            background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 100%);
-            box-shadow: 0 4px 20px rgba(39, 174, 96, 0.15);
-        }
-        
-        .product-card.selected::after {
-            content: '✓ تم التحديد';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-color);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            box-shadow: var(--shadow-sm);
-            animation: slideDown 0.3s ease;
-        }
-        
-        @keyframes slideDown {
-            from { 
-                opacity: 0;
-                transform: translate(-50%, -10px);
-            }
-            to { 
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
-        }
-
-        .product-title { 
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 15px 0;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-        }
-        
-        .price-tag { 
-            display: block;
-            font-weight: 700;
-            color: var(--accent-color);
-            font-size: 1.3rem;
-            margin-bottom: 18px;
-        }
-        
-        .select-btn {
-            width: 100%;
-            padding: 13px;
-            border: 2px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            min-height: 44px;
-        }
-        
-        .select-btn:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: scale(1.02);
-        }
-        
-        .product-card.selected .select-btn {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-        
-        .product-card.selected .select-btn:hover {
-            background: var(--accent-hover);
-            border-color: var(--accent-hover);
-        }
-
-        /* --- الشريط السفلي --- */
-        .bottom-cart-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
-            padding: 18px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-top: 3px solid var(--accent-color);
-        }
-        
-        .bottom-cart-bar.visible { 
-            transform: translateY(0);
-        }
-        
-        .cart-info { 
-            font-weight: 700;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .cart-total { 
-            color: var(--accent-color);
-            font-size: clamp(1.2rem, 4vw, 1.4rem);
-        }
-        
-        .checkout-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 13px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            white-space: nowrap;
-            min-height: 44px;
-        }
-        
-        .checkout-btn:hover {
-            background: var(--primary-dark);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .checkout-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* --- النافذة المنبثقة --- */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            backdrop-filter: blur(4px);
-        }
-        
-        .modal-content {
-            background: white;
-            width: 100%;
-            max-width: 550px;
-            border-radius: 24px;
-            padding: 35px;
-            text-align: right;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        @keyframes slideUp { 
-            from { 
-                transform: translateY(50px);
-                opacity: 0;
-            } 
-            to { 
-                transform: translateY(0);
-                opacity: 1;
-            } 
-        }
-
-        .form-group { 
-            margin-bottom: 18px;
-        }
-        
-        .form-label { 
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 13px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: #fafafa;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
-        }
-        
-        .form-input:invalid {
-            border-color: #ff6b6b;
-        }
-        
-        .form-input:valid {
-            border-color: #51cf66;
-        }
-        
-        /* معلومات الدفع المحسّنة */
-        .payment-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary-color), #34495e);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .payment-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        #paymentInfo {
-            display: none;
-            background: linear-gradient(135deg, #eef2f5 0%, #e8ecef 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 22px;
-            border-right: 4px solid var(--gold-color);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        #paymentInfo.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .copy-wrapper {
-            background: white;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid #e0e0e0;
-        }
-        
-        .copy-wrapper:hover {
-            border-color: var(--accent-color);
-            background: #f9f9f9;
-        }
-        
-        .copy-text {
-            font-family: 'Courier New', monospace;
-            color: #2c3e50;
-            font-weight: 600;
-            letter-spacing: 1px;
-            user-select: all;
-        }
-        
-        .copy-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-        
-        .copy-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-        
-        .copy-btn.copied {
-            background: var(--success-color);
-        }
-        
-        .security-warning {
-            margin-top: 15px;
-            padding: 12px;
-            background: #fff3cd;
-            border-radius: 8px;
-            border: 1px solid #ffeaa7;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        .file-upload-wrapper {
-            border: 2px dashed #d0d0d0;
-            padding: 25px;
-            text-align: center;
-            border-radius: 12px;
-            margin-top: 10px;
-            cursor: pointer;
-            background: #fafafa;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .file-upload-wrapper:hover {
-            border-color: var(--primary-color);
-            background: #f5f5f5;
-        }
-        
-        .file-upload-wrapper.dragover {
-            border-color: var(--accent-color);
-            background: #e8f8f0;
-        }
-        
-        .file-upload-wrapper.error {
-            border-color: var(--error-color);
-            background: #fdeaea;
-        }
-        
-        .file-validation {
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-        
-        .file-validation.error {
-            color: var(--error-color);
-        }
-        
-        .file-validation.success {
-            color: var(--success-color);
-        }
-        
-        .submit-order-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .submit-order-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .submit-order-btn:active {
-            transform: translateY(0);
-        }
-        
-        .submit-order-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        .close-modal {
-            float: left;
-            font-size: 28px;
-            cursor: pointer;
-            color: #999;
-            line-height: 1;
-            transition: var(--transition);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .close-modal:hover {
-            color: #333;
-            background: #f0f0f0;
+            background: var(--primary-color); color: white; padding: 12px 40px;
+            border-radius: 50px; font-size: 1.2rem; font-weight: 700;
+            display: inline-block; box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
         }
 
         .tg-link {
-            display: inline-block;
-            color: #0088cc;
-            text-decoration: none;
-            background: #e3f2fd;
-            padding: 10px 24px;
-            border-radius: 10px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #0088cc; text-decoration: none; background: #e3f2fd;
+            padding: 8px 20px; border-radius: 12px; font-weight: 700;
+            margin-top: 15px; font-size: 0.9rem; transition: var(--transition);
         }
-        
-        .tg-link:hover {
-            background: #bbdefb;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* الإشعارات */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            z-index: 10000;
-            box-shadow: var(--shadow-lg);
-            transform: translateX(150%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 350px;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification.success {
-            background: var(--success-color);
-        }
-        
-        .notification.error {
-            background: var(--error-color);
-        }
-        
-        .notification.info {
-            background: var(--primary-color);
-        }
-        
-        /* شاشة التحميل */
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--accent-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .modal-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .modal-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        .modal-content::-webkit-scrollbar-thumb {
-            background: #c0c0c0;
-            border-radius: 10px;
-        }
-        
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background: #a0a0a0;
+        .tg-link:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,136,204,0.2); }
+
+        /* --- المنتجات (Grid) --- */
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px; justify-content: center;
         }
 
-        /* تحسينات للشاشات الصغيرة */
-        @media (max-width: 768px) {
-            header {
-                padding: 20px 15px;
-            }
-            
-            .logo-img {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 15px;
-            }
-            
-            .bottom-cart-bar {
-                padding: 15px;
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .checkout-btn {
-                width: 100%;
-            }
-            
-            .modal-content {
-                padding: 25px 20px;
-            }
-            
-            .notification {
-                right: 10px;
-                max-width: calc(100% - 20px);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-card {
-                padding: 20px;
-            }
-            
-            .form-input {
-                font-size: 16px;
-            }
+        .product-card {
+            background: var(--white); border-radius: 20px; padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            border: 2px solid transparent; transition: var(--transition);
+            position: relative; overflow: hidden; cursor: pointer;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        .product-card.selected {
+            border-color: var(--accent-color); background: #f0fff4;
         }
+        .product-card.selected::before {
+            content: '✓ مختار'; position: absolute; top: 15px; right: 15px;
+            background: var(--accent-color); color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+        }
+
+        .product-title { font-size: 1.1rem; font-weight: 700; margin: 15px 0; color: var(--primary-color); min-height: 50px; display: flex; align-items: center; justify-content: center;}
+        .price-tag { display: block; font-weight: 800; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 20px; }
+
+        .select-btn {
+            width: 100%; padding: 12px; border: 2px solid var(--primary-color);
+            background: transparent; color: var(--primary-color);
+            border-radius: 12px; cursor: pointer; font-weight: 700; transition: var(--transition);
+        }
+        .product-card.selected .select-btn {
+            background: var(--accent-color); color: white; border-color: var(--accent-color); content: "إلغاء";
+        }
+        .select-btn:hover { background: var(--primary-color); color: white; }
+
+        /* --- الشريط السفلي العائم --- */
+        .bottom-cart-bar {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(150%);
+            width: 90%; max-width: 600px; background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px); color: white;
+            border-radius: 50px; padding: 15px 25px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .bottom-cart-bar.visible { transform: translateX(-50%) translateY(0); }
+
+        .cart-total { color: var(--gold-color); font-size: 1.3rem; font-weight: 800; margin: 0 5px; }
         
-        @media print {
-            .bottom-cart-bar,
-            .social-header,
-            .select-btn,
-            .checkout-btn,
-            #paymentInfo,
-            .modal,
-            .notification,
-            .loading-overlay {
-                display: none !important;
-            }
-            
-            body {
-                padding-bottom: 0;
-            }
-            
-            .product-card {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #ddd;
-            }
+        .checkout-btn {
+            background: var(--white); color: var(--primary-color); border: none;
+            padding: 10px 25px; border-radius: 30px; font-weight: 700;
+            cursor: pointer; font-size: 0.95rem; transition: transform 0.2s;
         }
+        .checkout-btn:hover { transform: scale(1.05); }
+
+        /* --- النافذة المنبثقة (Modal) --- */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;
+            padding: 20px; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: white; width: 100%; max-width: 500px; border-radius: 25px;
+            padding: 30px; text-align: right; max-height: 85vh; overflow-y: auto;
+            animation: slideUp 0.4s ease; position: relative;
+        }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 700; color: #555; font-size: 0.9rem; }
+        .form-input {
+            width: 100%; padding: 14px; border: 2px solid #eee; background: #fafafa;
+            border-radius: 12px; font-family: inherit; font-size: 1rem; transition: 0.3s;
+        }
+        .form-input:focus { border-color: var(--primary-color); outline: none; background: white; }
+
+        .file-upload-wrapper {
+            border: 2px dashed #ccc; padding: 20px; text-align: center;
+            border-radius: 15px; margin-top: 5px; cursor: pointer; transition: 0.3s;
+        }
+        .file-upload-wrapper:hover { border-color: var(--accent-color); background: #f0fff4; }
+
+        .submit-btn {
+            width: 100%; padding: 16px; background: linear-gradient(135deg, var(--accent-color), #219150);
+            color: white; border: none; border-radius: 15px; font-weight: 700;
+            font-size: 1.1rem; margin-top: 20px; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); transition: 0.3s;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4); }
+
+        .close-modal {
+            position: absolute; top: 20px; left: 20px; font-size: 24px;
+            background: #eee; width: 35px; height: 35px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; cursor: pointer;
+        }
+
+        /* --- معلومات الدفع --- */
+        .payment-toggle {
+            background: #f8f9fa; border: 2px solid #eee; padding: 12px; width: 100%;
+            border-radius: 12px; cursor: pointer; font-weight: bold; margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .payment-info {
+            display: none; background: #eef2f5; padding: 20px; border-radius: 15px;
+            margin-bottom: 20px; border-right: 4px solid var(--gold-color);
+        }
+        .copy-box {
+            background: white; padding: 8px 12px; border-radius: 8px; margin-top: 5px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd;
+        }
+        .copy-text { font-family: monospace; font-weight: bold; color: var(--primary-color); }
+        .btn-copy { background: var(--primary-color); color: white; border: none; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed; top: 20px; right: 20px; background: var(--primary-color);
+            color: white; padding: 12px 25px; border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 3000;
+            transform: translateX(150%); transition: transform 0.3s ease;
+        }
+        .toast.show { transform: translateX(0); }
     </style>
 </head>
 <body>
 
-    <div id="notification" class="notification" role="alert" aria-live="assertive"></div>
-    
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="spinner"></div>
-        <div style="margin-top: 20px; font-weight: 600; color: var(--primary-color);">جاري المعالجة...</div>
-    </div>
+    <div id="toast" class="toast">تمت العملية بنجاح!</div>
 
     <header>
-        <img src="LAW.jpeg" alt="شعار مكتبة الحقوق - Law by Mouhamed & Swima" class="logo-img" loading="lazy" width="120" height="120">
+        <img src="LAW.jpeg" alt="Logo" class="logo-img">
         <h1>Law by Mouhamed & Swima</h1>
+        <p style="color: #666;">ملخصات قانونية احترافية</p>
+
         <div class="social-header">
-            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" rel="noopener noreferrer" class="social-btn btn-insta" aria-label="تابعنا على إنستجرام">📷 Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" rel="noopener noreferrer" class="social-btn btn-fb" aria-label="تابعنا على فيسبوك">👍 Facebook</a>
+            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" class="icon-container instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="icon-container facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
         </div>
     </header>
 
-    <section class="site-description">
-        <h2>ملخصات قانونية موثوقة لطلاب الحقوق</h2>
-        <p>
-            نوفر لك أفضل الملخصات القانونية للسنوات الأولى، الثانية والثالثة ليسانس. 
-            ملخصات مكثفة ومنظمة تساعدك على التحضير الجيد للامتحانات.
-        </p>
-    </section>
-
     <div class="year-section">
         <div class="year-header">
-            <h2 class="year-title">السنة الأولى ليسانس</h2>
+            <div class="year-title">السنة الأولى ليسانس</div>
             <br>
-            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (1ère année)</a>
+            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" class="tg-link">مجموعة التيليجرام (1ère année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="1" data-name="القانون الدستوري" data-price="400" role="article">
+            <div class="product-card" data-id="1" data-name="القانون الدستوري" data-price="400">
                 <div class="product-title">القانون الدستوري</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون الدستوري للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="2" data-name="المدخل للعلوم القانونية" data-price="400" role="article">
+            <div class="product-card" data-id="2" data-name="المدخل للعلوم القانونية" data-price="400">
                 <div class="product-title">المدخل للعلوم القانونية</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة المدخل للعلوم القانونية للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="3" data-name="التنظيم القضائي" data-price="400" role="article">
+            <div class="product-card" data-id="3" data-name="التنظيم القضائي" data-price="400">
                 <div class="product-title">ملخص التنظيم القضائي</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة التنظيم القضائي للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
     <div class="year-section">
         <div class="year-header">
-            <h2 class="year-title">السنة الثانية ليسانس</h2>
+            <div class="year-title">السنة الثانية ليسانس</div>
             <br>
-            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (2ème année)</a>
+            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" class="tg-link">مجموعة التيليجرام (2ème année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="4" data-name="القانون المدني" data-price="400" role="article">
+            <div class="product-card" data-id="4" data-name="القانون المدني" data-price="400">
                 <div class="product-title">ملخص القانون المدني</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون المدني للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="5" data-name="القانون التجاري" data-price="400" role="article">
+            <div class="product-card" data-id="5" data-name="القانون التجاري" data-price="400">
                 <div class="product-title">ملخص القانون التجاري</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون التجاري للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="6" data-name="قانون العقوبات" data-price="400" role="article">
+            <div class="product-card" data-id="6" data-name="قانون العقوبات" data-price="400">
                 <div class="product-title">ملخص قانون العقوبات</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة قانون العقوبات للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
     <div class="year-section">
         <div class="year-header">
-            <h2 class="year-title">السنة الثالثة ليسانس</h2>
+            <div class="year-title">السنة الثالثة ليسانس</div>
             <br>
-            <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (3ème année)</a>
+            <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" class="tg-link">مجموعة التيليجرام (3ème année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="7" data-name="الوظيفة العمومية" data-price="400" role="article">
+            <div class="product-card" data-id="7" data-name="الوظيفة العمومية" data-price="400">
                 <div class="product-title">قانون الوظيفة العمومية</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة الوظيفة العمومية للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="8" data-name="العلاقات الدولية" data-price="400" role="article">
+            <div class="product-card" data-id="8" data-name="العلاقات الدولية" data-price="400">
                 <div class="product-title">العلاقات الدولية</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة العلاقات الدولية للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="9" data-name="العقود الخاصة" data-price="400" role="article">
+            <div class="product-card" data-id="9" data-name="العقود الخاصة" data-price="400">
                 <div class="product-title">العقود الخاصة</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة العقود الخاصة للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="10" data-name="الشركات التجارية" data-price="400" role="article">
+             <div class="product-card" data-id="10" data-name="الشركات التجارية" data-price="400">
                 <div class="product-title">الشركات التجارية</div>
                 <span class="price-tag">400 دج</span>
-                <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة الشركات التجارية للطلب">إضافة للطلب</button>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
-    <div id="bottomCart" class="bottom-cart-bar" role="region" aria-label="سلة التسوق">
-        <div class="cart-info">
-            <span>المجموع:</span>
-            <span id="totalPrice" class="cart-total">0</span>
-            <span>دج</span>
-            <span style="font-size: 0.85rem; color: #666;">(<span id="itemCount">0</span> ملخص)</span>
+    <div id="bottomCart" class="bottom-cart-bar">
+        <div>
+            مجموع الطلب: <span id="totalPrice" class="cart-total">0</span> <span style="font-size:0.9rem">دج</span>
+            <div style="font-size: 0.8rem; opacity: 0.8;">(<span id="itemCount">0</span> ملخص)</div>
         </div>
-        <button class="checkout-btn" onclick="openModal()" aria-label="إتمام الطلب">إتمام الطلب ✅</button>
+        <button class="checkout-btn" onclick="openModal()">إتمام الطلب ➜</button>
     </div>
 
-    <div id="orderModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div id="orderModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()" aria-label="إغلاق النافذة">&times;</span>
-            <h2 id="modalTitle" style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem;">تأكيد الطلب</h2>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">تأكيد الطلب</h2>
 
-            <button id="showPaymentBtn" class="payment-btn" onclick="togglePaymentInfo()">
-                👁️ عرض معلومات الدفع
-            </button>
+            <div class="payment-toggle" onclick="togglePayment()">
+                <span>💳 معلومات الدفع (CCP/Baridi)</span>
+                <span>▼</span>
+            </div>
 
-            <div id="paymentInfo" class="payment-details">
-                <strong>💳 معلومات الدفع:</strong><br><br>
-                
-                <strong>RIP:</strong>
-                <div class="copy-wrapper" onclick="copyToClipboard('00799999002789142280', this)">
-                    <span class="copy-text">00799999002789142280</span>
-                    <button class="copy-btn">نسخ</button>
+            <div id="paymentDetails" class="payment-info">
+                <div style="margin-bottom: 10px;">
+                    <small>RIP (BaridiMob):</small>
+                    <div class="copy-box">
+                        <span class="copy-text">00799999002789142280</span>
+                        <button class="btn-copy" onclick="copyText('00799999002789142280')">نسخ</button>
+                    </div>
                 </div>
-                
-                <strong>CCP:</strong>
-                <div class="copy-wrapper" onclick="copyToClipboard('0027891422', this)">
-                    <span class="copy-text">0027891422</span>
-                    <button class="copy-btn">نسخ</button>
+                <div style="margin-bottom: 10px;">
+                    <small>CCP (La Poste):</small>
+                    <div class="copy-box">
+                        <span class="copy-text">0027891422</span>
+                        <button class="btn-copy" onclick="copyText('0027891422')">نسخ</button>
+                    </div>
                 </div>
-                
-                <div style="margin-top: 10px;">
-                    <strong>مفتاح:</strong> <span class="copy-text" onclick="copyToClipboard('80', this)" style="cursor: pointer;">80</span>
-                </div>
-                
-                <strong>باسم:</strong> Djemaa Mouhamed Araffet
-                
-                <div class="security-warning">
-                    <strong>⚠️ تنبيه أمني:</strong><br>
-                    • لا تشارك معلومات الدفع مع أي شخص<br>
-                    • تأكد من صحة الحساب قبل التحويل<br>
-                    • احتفظ بصورة الوصل كإثبات
+                <div>
+                    <small>Clé:</small> <strong>80</strong> <br>
+                    <small>الاسم:</small> <strong>Djemaa Mouhamed Araffet</strong>
                 </div>
             </div>
 
             <form id="checkoutForm" onsubmit="submitOrder(event)">
-                <div style="display: flex; gap: 12px;">
+                <div style="display: flex; gap: 10px;">
                     <div class="form-group" style="flex:1">
-                        <label class="form-label" for="lastname">اللقب *</label>
-                        <input type="text" id="lastname" class="form-input" required placeholder="لقبك" autocomplete="family-name">
+                        <label class="form-label">اللقب</label>
+                        <input type="text" id="lastname" class="form-input" required placeholder="لقبك">
                     </div>
                     <div class="form-group" style="flex:1">
-                        <label class="form-label" for="firstname">الاسم *</label>
-                        <input type="text" id="firstname" class="form-input" required placeholder="اسمك" autocomplete="given-name">
+                        <label class="form-label">الاسم</label>
+                        <input type="text" id="firstname" class="form-input" required placeholder="اسمك">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="wilaya">الولاية *</label>
-                    <input type="text" id="wilaya" class="form-input" required placeholder="مثال: الجزائر" autocomplete="address-level1">
+                    <label class="form-label">الولاية</label>
+                    <input type="text" id="wilaya" class="form-input" required placeholder="مثال: الجزائر">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="year">السنة الدراسية *</label>
-                    <select id="year" class="form-input" required>
-                        <option value="">اختر السنة...</option>
+                    <label class="form-label">السنة الدراسية</label>
+                    <select id="year" class="form-input">
                         <option value="السنة الأولى">السنة الأولى</option>
                         <option value="السنة الثانية">السنة الثانية</option>
                         <option value="السنة الثالثة">السنة الثالثة</option>
@@ -972,11 +430,127 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="email">البريد الإلكتروني (لاستلام الملف) *</label>
-                    <input type="email" id="email" class="form-input" required placeholder="email@example.com" autocomplete="email">
+                    <label class="form-label">البريد الإلكتروني (لاستلام الملف)</label>
+                    <input type="email" id="email" class="form-input" required placeholder="email@example.com">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="receiptFile">إرفاق صورة الوصل (Reçu) *</label>
-                    <div class="file-upload-wrapper" onclick="document.getElementById('receiptFile').click()" id="fileUploadArea">
-                        <span style="font-size:
+                    <label class="form-label">إرفاق صورة الوصل (Reçu)</label>
+                    <div class="file-upload-wrapper" onclick="document.getElementById('receiptFile').click()">
+                        <span style="font-size: 2rem;">📷</span><br>
+                        <span style="font-size: 0.9rem; color: #666;">اضغط لرفع صورة الوصل</span>
+                        <input type="file" id="receiptFile" style="display: none;" accept="image/*" onchange="fileSelected(this)">
+                        <div id="fileName" style="margin-top: 5px; color: var(--accent-color); font-weight: bold; font-size: 0.8rem;"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">نسخ الطلب والذهاب للماسنجر 📨</button>
+                <p style="text-align: center; font-size: 0.8rem; margin-top: 10px; color: #888;">
+                    سيتم نسخ طلبك تلقائياً، يرجى لصقه في الماسنجر وإرفاق الصورة.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        const bottomCart = document.getElementById('bottomCart');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const itemCountEl = document.getElementById('itemCount');
+        const toast = document.getElementById('toast');
+
+        // إظهار إشعار صغير
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // إضافة/إزالة من السلة
+        function toggleCart(btn) {
+            const card = btn.parentElement;
+            const id = card.getAttribute('data-id');
+            const name = card.getAttribute('data-name');
+            const price = parseInt(card.getAttribute('data-price'));
+
+            const exists = cart.find(item => item.id === id);
+
+            if (exists) {
+                cart = cart.filter(item => item.id !== id);
+                card.classList.remove('selected');
+                btn.innerText = "إضافة للطلب";
+            } else {
+                cart.push({ id, name, price });
+                card.classList.add('selected');
+                btn.innerText = "إلغاء";
+                showToast("تمت الإضافة للسلة 🛒");
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalPriceEl.innerText = total;
+            itemCountEl.innerText = cart.length;
+            if (cart.length > 0) bottomCart.classList.add('visible');
+            else bottomCart.classList.remove('visible');
+        }
+
+        // Modal Functions
+        function openModal() { document.getElementById('orderModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
+        
+        // Toggle Payment Info
+        function togglePayment() {
+            const info = document.getElementById('paymentDetails');
+            info.style.display = (info.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Copy Text
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => showToast("تم نسخ الرقم!"));
+        }
+
+        // File Select
+        function fileSelected(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('fileName').innerText = "تم اختيار: " + input.files[0].name;
+            }
+        }
+
+        // Submit Order
+        function submitOrder(e) {
+            e.preventDefault();
+            
+            const lastname = document.getElementById('lastname').value;
+            const firstname = document.getElementById('firstname').value;
+            const wilaya = document.getElementById('wilaya').value;
+            const year = document.getElementById('year').value;
+            const email = document.getElementById('email').value;
+            
+            const orderItems = cart.map(item => `- ${item.name}`).join('\n');
+            const total = totalPriceEl.innerText;
+
+            const message = `
+🔔 طلب جديد:
+${orderItems}
+المجموع: ${total} دج
+
+👤 معلومات الطالب:
+الاسم: ${firstname} ${lastname}
+الولاية: ${wilaya}
+السنة: ${year}
+الإيميل: ${email}
+
+(مرفق صورة الوصل 👇)
+            `;
+
+            navigator.clipboard.writeText(message).then(() => {
+                alert("تم نسخ معلومات طلبك! \nسيتم توجيهك الآن للماسنجر.. قم بعمل (Lasser/Paste) وأرسل الصورة.");
+                window.location.href = "https://m.me/61582579114594"; 
+            });
+        }
+    </script>
+
+</body>
+</html>
