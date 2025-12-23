@@ -1,131 +1,151 @@
-/* إعدادات الصفحة العامة */
+/* إعدادات الخلفية العامة */
 body {
     margin: 0;
     padding: 0;
-    background-color: #050505; /* أسود حالك */
+    background-color: #050505; /* أسود حالك لإبراز الضوء */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Courier New', monospace;
-    overflow: hidden;
+    font-family: 'Consolas', monospace; /* خط الأرقام */
 }
 
-/* 1. حاوية البطاقة */
-.card-container {
+/* حاوية البطاقة */
+.card-wrapper {
     position: relative;
-    width: 420px;
-    height: 260px;
+    width: 400px;
+    height: 250px;
     border-radius: 20px;
+    /* هنا يبدأ السحر: تحضير المكان للشعاع */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     z-index: 1;
 }
 
-/* 2. الشعاع المضيء (The Beam Animation) */
-.beam {
+/* --- الشعاع الدوار (The Beam) --- */
+/* نستخدم عنصر زائف يدور في الخلفية */
+.card-wrapper::before {
+    content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150%; 
-    height: 150%;
-    /* تدرج لوني دائري يصنع الشعاع الذهبي */
+    width: 200%; /* حجم كبير جداً ليغطي الدوران */
+    height: 200%;
+    /* التدرج اللوني الدائري هو سر الإضاءة */
     background: conic-gradient(
-        from 0deg, 
         transparent 0deg, 
         transparent 80deg, 
-        #ffd700 100deg, /* لون ذهبي */
-        #ff8c00 120deg, /* برتقالي */
-        transparent 140deg, 
-        transparent 360deg
+        #ffd700 100deg,   /* ذهبي: بداية الشعاع */
+        #ff8c00 130deg,   /* برتقالي: ذيل الشعاع */
+        transparent 160deg
     );
-    animation: rotate 4s linear infinite; /* دوران مستمر */
-    z-index: -1;
-    border-radius: 50%;
-    filter: blur(25px); /* تمويه ليصبح ناعماً */
-    opacity: 0.8;
-}
-
-/* 3. البطاقة الزجاجية (Glassmorphism) */
-.glass-card {
-    position: absolute;
-    inset: 2px; /* مسافة صغيرة ليظهر الشعاع من الخلف */
-    background: rgba(20, 20, 20, 0.85); /* لون داكن شبه شفاف */
-    border-radius: 18px;
-    backdrop-filter: blur(20px); /* تأثير الضبابية */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* إطار خفيف جداً */
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 25px;
-    color: white;
+    animation: rotate-beam 4s linear infinite; /* سرعة الدوران */
 }
 
 /* حركة الدوران */
-@keyframes rotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes rotate-beam {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* --- تفاصيل التصميم الداخلية --- */
+/* --- البطاقة الداخلية (Masking) --- */
+/* نضع هذا الصندوق فوق الشعاع بمسافة صغيرة ليظهر الحواف فقط */
+.card {
+    position: absolute;
+    inset: 3px; /* يترك 3 بكسل من كل جهة ليظهر الشعاع */
+    background: #121212; /* لون البطاقة */
+    border-radius: 18px;
+    z-index: 2;
+    /* إضافة ملمس خفيف للبطاقة */
+    background-image: radial-gradient(circle at 50% -20%, #2a2a2a, #121212);
+}
 
-.top-section {
+/* --- محتوى البطاقة --- */
+.card-content {
+    padding: 25px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* رسم الشريحة الذهبية */
 .chip {
-    width: 50px; height: 38px;
-    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728);
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #755518;
-}
-.chip-line {
-    position: absolute; background: rgba(0,0,0,0.3);
-}
-.chip-line:nth-child(1) { width: 100%; height: 1px; top: 33%; }
-.chip-line:nth-child(2) { width: 100%; height: 1px; top: 66%; }
-.chip-line:nth-child(3) { width: 1px; height: 100%; left: 50%; }
-.chip-main {
-    position: absolute; top: 20%; left: 25%; width: 50%; height: 60%;
-    border: 1px solid rgba(0,0,0,0.3); border-radius: 4px;
+    width: 50px;
+    height: auto;
 }
 
-/* رسم الواي فاي */
-.wifi-symbol { position: relative; width: 30px; height: 30px; transform: rotate(45deg); }
-.wifi-circle {
-    position: absolute; border: 2px solid rgba(255,255,255,0.7);
-    border-radius: 50%; border-bottom-color: transparent; border-left-color: transparent;
+.contactless {
+    width: 30px;
+    fill: white;
+    transform: rotate(90deg);
+    opacity: 0.8;
 }
-.first { top: 0; left: 0; width: 30px; height: 30px; }
-.second { top: 7px; left: 7px; width: 16px; height: 16px; }
-.third { top: 14px; left: 14px; width: 2px; height: 2px; background: rgba(255,255,255,0.7); border: none; }
 
-/* رقم البطاقة */
 .card-number {
     font-size: 26px;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    background: linear-gradient(to bottom, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
-    text-shadow: 0 2px 5px black;
     margin-top: 10px;
-    font-family: 'Consolas', monospace;
 }
 
-/* المعلومات السفلية */
-.bottom-section {
-    display: flex; justify-content: space-between; align-items: flex-end;
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
-.card-info label { font-size: 10px; color: #aaa; text-transform: uppercase; display: block; margin-bottom: 2px; }
-.card-info .name, .card-info .date { font-size: 16px; font-weight: 500; text-shadow: 0 1px 2px black; }
 
-/* شعار ماستر كارد */
-.mastercard-logo { display: flex; position: relative; }
-.circle { width: 35px; height: 35px; border-radius: 50%; opacity: 0.9; }
-.red { background-color: #eb001b; }
-.orange { background-color: #f79e1b; margin-left: -12px; mix-blend-mode: screen; }
+.card-holder label, .card-expiry label {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
 
-.footer { margin-top: 30px; color: #444; font-size: 12px; font-family: sans-serif; }
+.card-holder div, .card-expiry div {
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px black;
+}
+
+/* تصميم شعار ماستر كارد */
+.card-logo {
+    display: flex;
+    align-items: center;
+}
+.circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.red { background: #eb001b; opacity: 0.9; }
+.orange { background: #f79e1b; margin-left: -12px; opacity: 0.9; }
+
+/* إضافة توهج إضافي (Glow) خلف البطاقة لتبدو واقعية */
+.card-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        transparent 0deg, 
+        transparent 80deg, 
+        #ffd700 100deg, 
+        transparent 160deg
+    );
+    animation: rotate-beam 4s linear infinite;
+    filter: blur(40px); /* تمويه قوي ليصنع هالة ضوئية */
+    z-index: -1;
+}
