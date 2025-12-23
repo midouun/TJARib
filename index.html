@@ -2,8 +2,23 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبة الحقوق - Law by Mouhamed & Swima</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- تحسينات SEO -->
+    <title>مكتبة الحقوق - Law by Mouhamed & Swima | ملخصات قانونية لطلاب الجامعة</title>
+    <meta name="description" content="ملخصات قانونية موثوقة للطلاب - السنة الأولى، الثانية والثالثة ليسانس. أسعار مناسبة وجودة عالية.">
+    <meta name="keywords" content="ملخصات قانونية, طلاب حقوق, السنة الأولى قانون, السنة الثانية قانون, السنة الثالثة قانون, ملخصات جامعية, دروس حقوق">
+    <meta name="author" content="Law by Mouhamed & Swima">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="مكتبة الحقوق - ملخصات قانونية لطلاب الجامعة">
+    <meta property="og:description" content="ملخصات قانونية موثوقة للطلاب - جميع السنوات الدراسية">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="LAW.jpeg">
+    
+    <!-- تحسينات الأداء -->
+    <link rel="preload" href="LAW.jpeg" as="image">
     
     <style>
         :root {
@@ -20,6 +35,8 @@
             --shadow-md: 0 4px 15px rgba(0,0,0,0.08);
             --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --error-color: #e74c3c;
+            --success-color: #27ae60;
         }
 
         * { 
@@ -29,13 +46,20 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: #333;
             padding-bottom: 90px;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeSpeed;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* --- الهيدر --- */
@@ -58,7 +82,7 @@
             border-radius: 50%;
             border: 4px solid var(--gold-color);
             object-fit: cover;
-            margin-bottom: 12px;
+            margin: 0 auto 12px;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
         }
@@ -75,7 +99,6 @@
             font-weight: 700;
         }
         
-        /* أزرار التواصل */
         .social-header { 
             display: flex;
             justify-content: center;
@@ -110,6 +133,26 @@
         .btn-insta { background: var(--insta-bg); }
         .btn-fb { background-color: var(--fb-color); }
 
+        /* --- وصف الموقع --- */
+        .site-description {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .site-description h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+        
+        .site-description p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
         /* --- أقسام السنوات --- */
         .year-section { 
             max-width: 1200px;
@@ -134,7 +177,6 @@
             margin-bottom: 25px;
         }
 
-        /* --- المنتجات --- */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -159,7 +201,6 @@
             box-shadow: var(--shadow-lg);
         }
         
-        /* تأثير عند اختيار الملخص */
         .product-card.selected {
             border-color: var(--accent-color);
             background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 100%);
@@ -223,6 +264,7 @@
             font-weight: 700;
             font-size: 0.95rem;
             transition: var(--transition);
+            min-height: 44px;
         }
         
         .select-btn:hover {
@@ -242,7 +284,7 @@
             border-color: var(--accent-hover);
         }
 
-        /* --- الشريط السفلي العائم --- */
+        /* --- الشريط السفلي --- */
         .bottom-cart-bar {
             position: fixed;
             bottom: 0;
@@ -290,6 +332,7 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             white-space: nowrap;
+            min-height: 44px;
         }
         
         .checkout-btn:hover {
@@ -302,7 +345,7 @@
             transform: scale(0.98);
         }
 
-        /* --- الاستمارة (Modal) --- */
+        /* --- النافذة المنبثقة --- */
         .modal {
             display: none;
             position: fixed;
@@ -372,6 +415,112 @@
             box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
         }
         
+        .form-input:invalid {
+            border-color: #ff6b6b;
+        }
+        
+        .form-input:valid {
+            border-color: #51cf66;
+        }
+        
+        /* معلومات الدفع المحسّنة */
+        .payment-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        #paymentInfo {
+            display: none;
+            background: linear-gradient(135deg, #eef2f5 0%, #e8ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            border-right: 4px solid var(--gold-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        #paymentInfo.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .copy-wrapper {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid #e0e0e0;
+        }
+        
+        .copy-wrapper:hover {
+            border-color: var(--accent-color);
+            background: #f9f9f9;
+        }
+        
+        .copy-text {
+            font-family: 'Courier New', monospace;
+            color: #2c3e50;
+            font-weight: 600;
+            letter-spacing: 1px;
+            user-select: all;
+        }
+        
+        .copy-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .copy-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .copy-btn.copied {
+            background: var(--success-color);
+        }
+        
+        .security-warning {
+            margin-top: 15px;
+            padding: 12px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border: 1px solid #ffeaa7;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
         .file-upload-wrapper {
             border: 2px dashed #d0d0d0;
             padding: 25px;
@@ -381,11 +530,35 @@
             cursor: pointer;
             background: #fafafa;
             transition: var(--transition);
+            position: relative;
         }
         
         .file-upload-wrapper:hover {
             border-color: var(--primary-color);
             background: #f5f5f5;
+        }
+        
+        .file-upload-wrapper.dragover {
+            border-color: var(--accent-color);
+            background: #e8f8f0;
+        }
+        
+        .file-upload-wrapper.error {
+            border-color: var(--error-color);
+            background: #fdeaea;
+        }
+        
+        .file-validation {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .file-validation.error {
+            color: var(--error-color);
+        }
+        
+        .file-validation.success {
+            color: var(--success-color);
         }
         
         .submit-order-btn {
@@ -413,6 +586,11 @@
             transform: translateY(0);
         }
         
+        .submit-order-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
         .close-modal {
             float: left;
             font-size: 28px;
@@ -433,30 +611,6 @@
             background: #f0f0f0;
         }
 
-        /* --- معلومات الدفع --- */
-        .payment-details {
-            background: linear-gradient(135deg, #eef2f5 0%, #e8ecef 100%);
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 22px;
-            font-size: 0.95rem;
-            border-right: 4px solid var(--gold-color);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .copy-text { 
-            font-family: 'Courier New', monospace;
-            background: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            color: #c0392b;
-            font-weight: 700;
-            display: inline-block;
-            margin: 2px 0;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        /* Telegram Link Style */
         .tg-link {
             display: inline-block;
             color: #0088cc;
@@ -476,7 +630,66 @@
             box-shadow: var(--shadow-md);
         }
         
-        /* Scrollbar تحسين شريط التمرير */
+        /* الإشعارات */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: var(--shadow-lg);
+            transform: translateX(150%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 350px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: var(--success-color);
+        }
+        
+        .notification.error {
+            background: var(--error-color);
+        }
+        
+        .notification.info {
+            background: var(--primary-color);
+        }
+        
+        /* شاشة التحميل */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         .modal-content::-webkit-scrollbar {
             width: 8px;
         }
@@ -495,7 +708,7 @@
             background: #a0a0a0;
         }
 
-        /* تحسين للشاشات الصغيرة */
+        /* تحسينات للشاشات الصغيرة */
         @media (max-width: 768px) {
             header {
                 padding: 20px 15px;
@@ -524,6 +737,11 @@
             .modal-content {
                 padding: 25px 20px;
             }
+            
+            .notification {
+                right: 10px;
+                max-width: calc(100% - 20px);
+            }
         }
         
         @media (max-width: 480px) {
@@ -534,63 +752,88 @@
             .product-card {
                 padding: 20px;
             }
+            
+            .form-input {
+                font-size: 16px;
+            }
         }
 
-        /* تحسين الطباعة */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
         @media print {
             .bottom-cart-bar,
             .social-header,
             .select-btn,
-            .checkout-btn {
-                display: none;
+            .checkout-btn,
+            #paymentInfo,
+            .modal,
+            .notification,
+            .loading-overlay {
+                display: none !important;
             }
-        }
-
-        /* Loading animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            
+            body {
+                padding-bottom: 0;
+            }
+            
+            .product-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
         }
     </style>
 </head>
 <body>
 
+    <div id="notification" class="notification" role="alert" aria-live="assertive"></div>
+    
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div style="margin-top: 20px; font-weight: 600; color: var(--primary-color);">جاري المعالجة...</div>
+    </div>
+
     <header>
-        <img src="LAW.jpeg" alt="شعار مكتبة الحقوق" class="logo-img" loading="lazy">
+        <img src="LAW.jpeg" alt="شعار مكتبة الحقوق - Law by Mouhamed & Swima" class="logo-img" loading="lazy" width="120" height="120">
         <h1>Law by Mouhamed & Swima</h1>
         <div class="social-header">
-            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" rel="noopener" class="social-btn btn-insta" aria-label="Instagram">📷 Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" rel="noopener" class="social-btn btn-fb" aria-label="Facebook">👍 Facebook</a>
+            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" rel="noopener noreferrer" class="social-btn btn-insta" aria-label="تابعنا على إنستجرام">📷 Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" rel="noopener noreferrer" class="social-btn btn-fb" aria-label="تابعنا على فيسبوك">👍 Facebook</a>
         </div>
     </header>
 
+    <section class="site-description">
+        <h2>ملخصات قانونية موثوقة لطلاب الحقوق</h2>
+        <p>
+            نوفر لك أفضل الملخصات القانونية للسنوات الأولى، الثانية والثالثة ليسانس. 
+            ملخصات مكثفة ومنظمة تساعدك على التحضير الجيد للامتحانات.
+        </p>
+    </section>
+
     <div class="year-section">
         <div class="year-header">
-            <div class="year-title">السنة الأولى ليسانس</div>
+            <h2 class="year-title">السنة الأولى ليسانس</h2>
             <br>
-            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" rel="noopener" class="tg-link">📱 مجموعة التيليجرام (1ère année)</a>
+            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (1ère année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="1" data-name="القانون الدستوري" data-price="400">
+            <div class="product-card" data-id="1" data-name="القانون الدستوري" data-price="400" role="article">
                 <div class="product-title">القانون الدستوري</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون الدستوري للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="2" data-name="المدخل للعلوم القانونية" data-price="400">
+            <div class="product-card" data-id="2" data-name="المدخل للعلوم القانونية" data-price="400" role="article">
                 <div class="product-title">المدخل للعلوم القانونية</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة المدخل للعلوم القانونية للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="3" data-name="التنظيم القضائي" data-price="400">
+            <div class="product-card" data-id="3" data-name="التنظيم القضائي" data-price="400" role="article">
                 <div class="product-title">ملخص التنظيم القضائي</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة التنظيم القضائي للطلب">إضافة للطلب</button>
@@ -600,22 +843,22 @@
 
     <div class="year-section">
         <div class="year-header">
-            <div class="year-title">السنة الثانية ليسانس</div>
+            <h2 class="year-title">السنة الثانية ليسانس</h2>
             <br>
-            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" rel="noopener" class="tg-link">📱 مجموعة التيليجرام (2ème année)</a>
+            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (2ème année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="4" data-name="القانون المدني" data-price="400">
+            <div class="product-card" data-id="4" data-name="القانون المدني" data-price="400" role="article">
                 <div class="product-title">ملخص القانون المدني</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون المدني للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="5" data-name="القانون التجاري" data-price="400">
+            <div class="product-card" data-id="5" data-name="القانون التجاري" data-price="400" role="article">
                 <div class="product-title">ملخص القانون التجاري</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة القانون التجاري للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="6" data-name="قانون العقوبات" data-price="400">
+            <div class="product-card" data-id="6" data-name="قانون العقوبات" data-price="400" role="article">
                 <div class="product-title">ملخص قانون العقوبات</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة قانون العقوبات للطلب">إضافة للطلب</button>
@@ -625,27 +868,27 @@
 
     <div class="year-section">
         <div class="year-header">
-            <div class="year-title">السنة الثالثة ليسانس</div>
+            <h2 class="year-title">السنة الثالثة ليسانس</h2>
             <br>
-            <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" rel="noopener" class="tg-link">📱 مجموعة التيليجرام (3ème année)</a>
+            <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" rel="noopener noreferrer" class="tg-link">📱 مجموعة التيليجرام (3ème année)</a>
         </div>
         <div class="products-grid">
-            <div class="product-card" data-id="7" data-name="الوظيفة العمومية" data-price="400">
+            <div class="product-card" data-id="7" data-name="الوظيفة العمومية" data-price="400" role="article">
                 <div class="product-title">قانون الوظيفة العمومية</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة الوظيفة العمومية للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="8" data-name="العلاقات الدولية" data-price="400">
+            <div class="product-card" data-id="8" data-name="العلاقات الدولية" data-price="400" role="article">
                 <div class="product-title">العلاقات الدولية</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة العلاقات الدولية للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="9" data-name="العقود الخاصة" data-price="400">
+            <div class="product-card" data-id="9" data-name="العقود الخاصة" data-price="400" role="article">
                 <div class="product-title">العقود الخاصة</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة العقود الخاصة للطلب">إضافة للطلب</button>
             </div>
-            <div class="product-card" data-id="10" data-name="الشركات التجارية" data-price="400">
+            <div class="product-card" data-id="10" data-name="الشركات التجارية" data-price="400" role="article">
                 <div class="product-title">الشركات التجارية</div>
                 <span class="price-tag">400 دج</span>
                 <button class="select-btn" onclick="toggleCart(this)" aria-label="إضافة الشركات التجارية للطلب">إضافة للطلب</button>
@@ -665,14 +908,40 @@
 
     <div id="orderModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()" aria-label="إغلاق">&times;</span>
+            <span class="close-modal" onclick="closeModal()" aria-label="إغلاق النافذة">&times;</span>
             <h2 id="modalTitle" style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem;">تأكيد الطلب</h2>
 
-            <div class="payment-details">
+            <button id="showPaymentBtn" class="payment-btn" onclick="togglePaymentInfo()">
+                👁️ عرض معلومات الدفع
+            </button>
+
+            <div id="paymentInfo" class="payment-details">
                 <strong>💳 معلومات الدفع:</strong><br><br>
-                <strong>RIP:</strong> <span class="copy-text">00799999002789142280</span><br>
-                <strong>CCP:</strong> <span class="copy-text">0027891422</span> <strong>Clé:</strong> <span class="copy-text">80</span><br>
+                
+                <strong>RIP:</strong>
+                <div class="copy-wrapper" onclick="copyToClipboard('00799999002789142280', this)">
+                    <span class="copy-text">00799999002789142280</span>
+                    <button class="copy-btn">نسخ</button>
+                </div>
+                
+                <strong>CCP:</strong>
+                <div class="copy-wrapper" onclick="copyToClipboard('0027891422', this)">
+                    <span class="copy-text">0027891422</span>
+                    <button class="copy-btn">نسخ</button>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <strong>مفتاح:</strong> <span class="copy-text" onclick="copyToClipboard('80', this)" style="cursor: pointer;">80</span>
+                </div>
+                
                 <strong>باسم:</strong> Djemaa Mouhamed Araffet
+                
+                <div class="security-warning">
+                    <strong>⚠️ تنبيه أمني:</strong><br>
+                    • لا تشارك معلومات الدفع مع أي شخص<br>
+                    • تأكد من صحة الحساب قبل التحويل<br>
+                    • احتفظ بصورة الوصل كإثبات
+                </div>
             </div>
 
             <form id="checkoutForm" onsubmit="submitOrder(event)">
@@ -708,267 +977,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="receiptFile">إرفاق صورة الوصل (Reçu)</label>
-                    <div class="file-upload-wrapper" onclick="document.getElementById('receiptFile').click()">
-                        <span style="font-size: 2.5rem;">📷</span><br>
-                        <strong>اضغط هنا لاختيار صورة الوصل</strong>
-                        <input type="file" id="receiptFile" style="display: none;" accept="image/*" onchange="fileSelected(this)" aria-label="اختيار صورة الوصل">
-                        <div id="fileName" style="margin-top: 8px; color: var(--accent-color); font-weight: 600; font-size: 0.9rem;"></div>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-order-btn">إرسال الطلب عبر ماسنجر 📨</button>
-                <p style="text-align: center; font-size: 0.85rem; margin-top: 12px; color: #777;">
-                    سيتم تحويلك لفيسبوك لإرفاق الصورة هناك.
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // متغيرات عامة
-        let cart = [];
-        const bottomCart = document.getElementById('bottomCart');
-        const totalPriceEl = document.getElementById('totalPrice');
-        const itemCountEl = document.getElementById('itemCount');
-        const modal = document.getElementById('orderModal');
-
-        // تحميل السلة من localStorage عند بداية الصفحة
-        function loadCart() {
-            const savedCart = localStorage.getItem('lawCart');
-            if (savedCart) {
-                try {
-                    cart = JSON.parse(savedCart);
-                    // تحديث واجهة المستخدم لكل منتج محفوظ
-                    cart.forEach(item => {
-                        const card = document.querySelector(`[data-id="${item.id}"]`);
-                        if (card) {
-                            card.classList.add('selected');
-                            const btn = card.querySelector('.select-btn');
-                            if (btn) btn.innerText = "إلغاء";
-                        }
-                    });
-                    updateCartUI();
-                } catch (e) {
-                    console.error('خطأ في تحميل السلة:', e);
-                    cart = [];
-                }
-            }
-        }
-
-        // حفظ السلة في localStorage
-        function saveCart() {
-            try {
-                localStorage.setItem('lawCart', JSON.stringify(cart));
-            } catch (e) {
-                console.error('خطأ في حفظ السلة:', e);
-            }
-        }
-
-        // دالة اختيار/إلغاء الملخص
-        function toggleCart(btn) {
-            const card = btn.closest('.product-card');
-            if (!card) return;
-
-            const id = card.getAttribute('data-id');
-            const name = card.getAttribute('data-name');
-            const price = parseInt(card.getAttribute('data-price'));
-
-            const exists = cart.find(item => item.id === id);
-
-            if (exists) {
-                cart = cart.filter(item => item.id !== id);
-                card.classList.remove('selected');
-                btn.innerText = "إضافة للطلب";
-            } else {
-                cart.push({ id, name, price });
-                card.classList.add('selected');
-                btn.innerText = "إلغاء";
-            }
-
-            saveCart();
-            updateCartUI();
-        }
-
-        // تحديث واجهة السلة
-        function updateCartUI() {
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            
-            // تحريك الأرقام بشكل سلس
-            animateValue(totalPriceEl, parseInt(totalPriceEl.innerText) || 0, total, 300);
-            itemCountEl.innerText = cart.length;
-
-            if (cart.length > 0) {
-                bottomCart.classList.add('visible');
-            } else {
-                bottomCart.classList.remove('visible');
-            }
-        }
-
-        // تحريك الأرقام بشكل سلس
-        function animateValue(element, start, end, duration) {
-            const range = end - start;
-            const increment = range / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-                    element.innerText = end;
-                    clearInterval(timer);
-                } else {
-                    element.innerText = Math.round(current);
-                }
-            }, 16);
-        }
-
-        // فتح النافذة المنبثقة
-        function openModal() {
-            if (cart.length === 0) {
-                alert('⚠️ يرجى اختيار ملخص واحد على الأقل');
-                return;
-            }
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // إغلاق النافذة المنبثقة
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // إغلاق عند الضغط خارج النافذة
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // إغلاق عند الضغط على Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                closeModal();
-            }
-        });
-
-        // عرض اسم الملف المختار
-        function fileSelected(input) {
-            if (input.files && input.files[0]) {
-                const fileName = input.files[0].name;
-                const fileSize = (input.files[0].size / 1024).toFixed(2);
-                document.getElementById('fileName').innerHTML = `
-                    ✓ تم اختيار: <strong>${fileName}</strong><br>
-                    <span style="font-size: 0.8rem; color: #666;">(${fileSize} KB)</span>
-                `;
-            }
-        }
-
-        // التحقق من صحة البريد الإلكتروني
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // إرسال الطلب
-        function submitOrder(e) {
-            e.preventDefault();
-
-            // جمع البيانات
-            const lastname = document.getElementById('lastname').value.trim();
-            const firstname = document.getElementById('firstname').value.trim();
-            const wilaya = document.getElementById('wilaya').value.trim();
-            const year = document.getElementById('year').value;
-            const email = document.getElementById('email').value.trim();
-            
-            // التحقق من البيانات
-            if (!lastname || !firstname || !wilaya || !year || !email) {
-                alert('⚠️ يرجى ملء جميع الحقول المطلوبة');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                alert('⚠️ يرجى إدخال بريد إلكتروني صحيح');
-                return;
-            }
-
-            if (cart.length === 0) {
-                alert('⚠️ السلة فارغة! يرجى اختيار ملخص واحد على الأقل');
-                return;
-            }
-            
-            // قائمة الملخصات
-            const orderItems = cart.map((item, index) => `${index + 1}. ${item.name} (${item.price} دج)`).join('\n');
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-            // تجهيز نص الرسالة
-            const message = `السلام عليكم ورحمة الله 🌟
-
-📚 طلب جديد من مكتبة الحقوق:
-
-${orderItems}
-
-💰 المجموع الإجمالي: ${total} دج
-━━━━━━━━━━━━━━━━━━━━━
-👤 معلومات الطالب:
-• الاسم الكامل: ${firstname} ${lastname}
-• الولاية: ${wilaya}
-• السنة الدراسية: ${year}
-• البريد الإلكتروني: ${email}
-━━━━━━━━━━━━━━━━━━━━━
-
-✅ تم الدفع (سيتم إرفاق صورة الوصل)`;
-
-            // تغيير نص الزر
-            const submitBtn = e.target.querySelector('.submit-order-btn');
-            const originalText = submitBtn.innerText;
-            submitBtn.innerHTML = '<span class="loading"></span> جاري التحويل...';
-            submitBtn.disabled = true;
-
-            // نسخ النص للحافظة
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(message)
-                    .then(() => {
-                        setTimeout(() => {
-                            alert("✅ تم نسخ معلومات طلبك بنجاح!\n\n📱 سيتم فتح الماسنجر الآن:\n\n1️⃣ قم بعمل 'لصق' (Paste) للمعلومات\n2️⃣ أرفق صورة الوصل\n3️⃣ اضغط إرسال");
-                            
-                            // مسح السلة بعد الطلب الناجح
-                            cart = [];
-                            saveCart();
-                            document.querySelectorAll('.product-card.selected').forEach(card => {
-                                card.classList.remove('selected');
-                                const btn = card.querySelector('.select-btn');
-                                if (btn) btn.innerText = "إضافة للطلب";
-                            });
-                            updateCartUI();
-                            
-                            // التوجيه إلى ماسنجر
-                            window.location.href = "https://m.me/61582579114594";
-                        }, 500);
-                    })
-                    .catch(err => {
-                        console.error('خطأ في النسخ:', err);
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                        alert("⚠️ لم نتمكن من نسخ المعلومات تلقائياً.\n\nسنقوم بفتح الماسنجر، يرجى كتابة معلومات طلبك يدوياً.");
-                        window.location.href = "https://m.me/61582579114594";
-                    });
-            } else {
-                // متصفح قديم لا يدعم Clipboard API
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                alert("📱 سيتم فتح الماسنجر الآن\n\nيرجى كتابة معلومات طلبك يدوياً وإرفاق صورة الوصل.");
-                window.location.href = "https://m.me/61582579114594";
-            }
-        }
-
-        // تحميل السلة عند بداية الصفحة
-        window.addEventListener('DOMContentLoaded', loadCart);
-
-        // منع إرسال النموذج عند الضغط على Enter في حقول النص
-        document.getElementById('checkoutForm').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-            }
-        });
-    </script>
+                    <label class="form-label" for="receiptFile">إرفاق صورة الوصل (Reçu) *</label>
+                    <div class="file-upload-wrapper" onclick="document.getElementById('receiptFile').click()" id="fileUploadArea">
+                        <span style="font-size:
