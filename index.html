@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملخصات الأستاذ جمعة محمد عرفات</title>
+    <title>ملخصات القانون - الأستاذ جمعة محمد عرفات</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -19,6 +19,8 @@
             padding: 20px;
             text-align: center;
         }
+        
+        /* تنسيق الشعار والعنوان */
         header {
             display: flex;
             flex-direction: column;
@@ -26,53 +28,117 @@
             margin-bottom: 40px;
         }
         .logo-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 3px solid var(--gold-color);
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* يجعل الصورة دائرية */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 4px solid var(--gold-color);
             object-fit: cover;
             margin-bottom: 20px;
+            background-color: white;
         }
-        h1 { color: var(--primary-color); margin: 10px 0; }
+        h1 { color: var(--primary-color); margin: 10px 0; font-size: 1.8rem; }
+        p { color: #666; }
+
+        /* تنسيق المنتجات */
         .products-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             margin-top: 20px;
         }
         .product-card {
             background: white;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 300px;
-            padding: 20px;
+            width: 300px; /* عرض مناسب للهاتف */
+            padding: 25px;
             transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border-top: 5px solid var(--primary-color);
         }
         .product-card:hover { transform: translateY(-5px); }
-        .product-title { font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
-        .price-tag { background-color: #e8f5e9; color: var(--accent-color); padding: 5px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin: 10px 0; }
-        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .buy-btn { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; }
-        .edahabia-btn { background: linear-gradient(45deg, #1e3c72, #2a5298); color: #fff; border: 1px solid #d4af37; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: bold; }
+        .product-icon { font-size: 50px; margin-bottom: 10px; }
+        .product-title { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .price-tag { 
+            background-color: #e8f5e9; 
+            color: var(--accent-color); 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            display: inline-block; 
+            margin: 10px 0 20px 0; 
+        }
+
+        /* تنسيق الأزرار */
+        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
+        
+        .buy-btn { 
+            background-color: var(--primary-color); 
+            color: white; 
+            border: none; 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            transition: background 0.3s;
+        }
+        .buy-btn:hover { background-color: #1a252f; }
+
+        .edahabia-btn { 
+            background: linear-gradient(135deg, #1e3c72, #2a5298); 
+            color: #fff; 
+            border: 2px solid var(--gold-color); 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .edahabia-btn:hover { transform: scale(1.02); box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
         .edahabia-btn::before { content: "💳"; }
+
+        /* تنسيق قسم معلومات الدفع */
         .payment-info {
             background-color: white;
             border: 2px dashed var(--primary-color);
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            border-radius: 10px;
+            max-width: 500px;
+            margin: 50px auto 20px auto;
+            padding: 25px;
+            border-radius: 15px;
             text-align: right;
-            display: none;
+            display: none; /* مخفي افتراضياً */
         }
-        .payment-info.active { display: block; animation: fadeIn 0.5s; }
-        .copy-box { background: #eee; padding: 5px; border-radius: 4px; font-family: monospace; font-weight: bold; direction: ltr; display: inline-block; }
-        .step-box { margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #eee; }
+        .payment-info.active { display: block; animation: fadeIn 0.6s; }
+        
+        .step-box { 
+            margin-bottom: 15px; 
+            padding: 12px; 
+            background-color: #f8f9fa; 
+            border-radius: 8px;
+            border-right: 4px solid var(--accent-color);
+        }
+        .copy-box { 
+            background: #e9ecef; 
+            padding: 3px 8px; 
+            border-radius: 4px; 
+            font-family: 'Courier New', monospace; 
+            font-weight: bold; 
+            color: #d63384;
+            direction: ltr; 
+            display: inline-block; 
+        }
+
+        /* زر الفيسبوك */
         .fb-contact-btn {
             display: inline-flex;
             align-items: center;
@@ -80,28 +146,34 @@
             background-color: var(--fb-color);
             color: white;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 30px;
+            padding: 14px 28px;
+            border-radius: 50px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
             transition: background-color 0.3s;
         }
         .fb-contact-btn:hover { background-color: #155cb1; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* تذييل الصفحة */
+        footer { margin-top: 50px; color: #888; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="image_1.png" alt="شعار المكتب القانوني" class="logo-img">
-        <h1>📚 ملخصات الأستاذ جمعة محمد عرفات</h1>
-        <p>اختر الملخص وطريقة الدفع المناسبة لك</p>
+        <img src="LAW.jpeg" alt="شعار المكتب القانوني" class="logo-img">
+        <h1>📚 مكتبة الأستاذ جمعة محمد عرفات</h1>
+        <p>ملخصات قانونية شاملة للنجاح والتميز</p>
     </header>
 
     <div class="products-container">
+        
         <div class="product-card">
             <div>
-                <div style="font-size: 40px;">⚖️</div>
+                <div class="product-icon">⚖️</div>
                 <div class="product-title">ملخص القانون المدني</div>
                 <div class="price-tag">400 دج</div>
             </div>
@@ -110,9 +182,10 @@
                 <button class="buy-btn" onclick="showManualPayment()">تحويل CCP / BaridiMob</button>
             </div>
         </div>
+
         <div class="product-card">
             <div>
-                <div style="font-size: 40px;">💼</div>
+                <div class="product-icon">💼</div>
                 <div class="product-title">ملخص القانون التجاري</div>
                 <div class="price-tag">400 دج</div>
             </div>
@@ -124,41 +197,54 @@
     </div>
 
     <div id="manual-payment" class="payment-info">
-        <h3>🏦 معلومات التحويل المباشر</h3>
+        <h3 style="text-align: center; color: var(--primary-color);">🏦 معلومات الدفع</h3>
+        <p style="text-align: center; font-size: 0.9rem;">يرجى تحويل المبلغ إلى الحساب التالي:</p>
         
         <div class="step-box">
-            <strong>1️⃣ عبر تطبيق BaridiMob (بريدي موب):</strong><br>
-            RIP: <span class="copy-box">00799999002789142280</span>
+            <strong>1️⃣ تطبيق BaridiMob (بريدي موب):</strong><br>
+            <span style="display: block; direction: ltr; text-align: left; margin-top: 5px;">
+                RIP: <span class="copy-box">00799999002789142280</span>
+            </span>
         </div>
 
         <div class="step-box">
-            <strong>2️⃣ عبر البريد (La Poste):</strong><br>
-            CCP: <span class="copy-box">0027891422</span> Clé: <span class="copy-box">80</span>
+            <strong>2️⃣ مكتب البريد (La Poste):</strong><br>
+            <span style="display: block; direction: ltr; text-align: left; margin-top: 5px;">
+                CCP: <span class="copy-box">0027891422</span> Clé: <span class="copy-box">80</span>
+            </span>
         </div>
 
         <div class="step-box">
             <strong>👤 صاحب الحساب:</strong><br>
             Djemaa Mouhamed Araffet<br>
-            العنوان: Laebidi keziz, Oulad Rchache, Khenchela
+            <span style="font-size: 0.85rem; color: #555;">العنوان: Laebidi keziz, Oulad Rchache, Khenchela</span>
         </div>
         
-        <div style="text-align: center; padding-top: 20px;">
-            <p style="color: red; font-weight: bold; margin-bottom: 15px;">⚠️ هام جداً: بعد التحويل، يرجى إرسال صورة الوصل لاستلام الملف.</p>
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="color: #c0392b; font-weight: bold;">⚠️ خطوة أخيرة هامة:</p>
+            <p>بعد إتمام الدفع، التقط صورة للوصل واضغط على الزر أدناه لإرسالها واستلام ملفك PDF فوراً.</p>
             
             <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="fb-contact-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                راسلنا على فيسبوك لإرسال الوصل
+                اضغط هنا لإرسال الوصل (فيسبوك)
             </a>
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2024 جميع الحقوق محفوظة للأستاذ جمعة محمد عرفات</p>
+    </footer>
+
     <script>
         function showManualPayment() {
-            document.getElementById('manual-payment').classList.add('active');
-            document.getElementById('manual-payment').scrollIntoView({ behavior: 'smooth' });
+            var paymentDiv = document.getElementById('manual-payment');
+            paymentDiv.classList.add('active');
+            paymentDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
         function payWithEdahabia() {
-            alert("للدفع بالبطاقة الذهبية، يرجى استخدام تطبيق بريدي موب والتحويل إلى الـ RIP الموجود في قسم 'تحويل CCP'.");
+            // رسالة توجيهية لأن الدفع المباشر يتطلب بوابة دفع
+            alert("للدفع بالبطاقة الذهبية، يرجى استخدام تطبيق بريدي موب والتحويل إلى الـ RIP الموجود في الأسفل.\n\nسيتم نقلك الآن إلى معلومات الحساب.");
             showManualPayment();
         }
     </script>
