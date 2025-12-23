@@ -3,583 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مكتبة الحقوق الشاملة - Law by Mouhamed & Swima">
     <title>مكتبة الحقوق - Law by Mouhamed & Swima</title>
     
     <style>
-        /* ============================================
-           المتغيرات والألوان (CSS Variables)
-           ============================================ */
         :root {
             --primary-color: #2c3e50;
-            --primary-light: #34495e;
             --accent-color: #27ae60;
-            --accent-light: #2ecc71;
-            --free-color: #3498db;
-            --free-light: #5dade2;
-            --bg-color: #f0f2f5;
-            --bg-secondary: #e8eaf0;
             --gold-color: #d4af37;
-            --gold-light: #f1c40f;
+            --bg-color: #f0f2f5;
+            --white: #ffffff;
             --fb-color: #1877f2;
             --insta-bg: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --tg-color: #0088cc;
-            --white: #ffffff;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --border-color: #dee2e6;
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
-            --radius-lg: 16px;
-            --radius-full: 50px;
-            --transition-normal: 0.3s ease;
         }
 
-        /* ============================================
-           إعدادات عامة
-           ============================================ */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Segoe UI', 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            padding-bottom: 80px; /* مساحة للشريط السفلي */
         }
 
-        /* ============================================
-           شاشة التحميل (Loader)
-           ============================================ */
-        #initial-loader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999; transition: opacity 0.5s ease;
-        }
-        #initial-loader.hidden { opacity: 0; pointer-events: none; }
-        .loader-logo { font-size: 4rem; margin-bottom: 20px; animation: pulse 2s infinite; }
-        .loader-spinner {
-            width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.3);
-            border-top-color: var(--gold-color); border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-
-        /* ============================================
-           الهيدر (Header)
-           ============================================ */
+        /* --- الهيدر --- */
         header {
-            background: var(--white); padding: 40px 20px;
+            background: var(--white); padding: 30px 20px; text-align: center;
             border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px;
         }
         .logo-img {
-            width: 150px; height: 150px; border-radius: 50%;
-            border: 5px solid var(--gold-color); object-fit: cover;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); margin-bottom: 15px;
+            width: 140px; height: 140px; border-radius: 50%;
+            border: 4px solid var(--gold-color); object-fit: cover;
+            margin-bottom: 10px;
         }
-        h1 { color: var(--primary-color); font-size: 2rem; margin-bottom: 5px; }
-        .subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 20px; }
-
-        /* أزرار التواصل الاجتماعي */
-        .social-header { display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
+        h1 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 5px; }
+        
+        /* أزرار التواصل */
+        .social-header { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
         .social-btn {
-            display: flex; align-items: center; gap: 10px; padding: 10px 25px;
-            border-radius: var(--radius-full); text-decoration: none; color: white;
-            font-weight: bold; transition: transform 0.2s;
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
+            border-radius: 50px; text-decoration: none; color: white; font-weight: bold; font-size: 0.9rem;
         }
-        .social-btn:hover { transform: translateY(-3px); }
         .btn-insta { background: var(--insta-bg); }
         .btn-fb { background-color: var(--fb-color); }
-        .icon { width: 20px; height: 20px; fill: currentColor; }
 
-        /* ============================================
-           أدوات التحكم (بحث + فلترة)
-           ============================================ */
-        .search-bar-container { max-width: 600px; margin: 0 auto 20px auto; padding: 0 20px; }
-        .search-input {
-            width: 100%; padding: 15px 20px; border: 2px solid var(--border-color);
-            border-radius: var(--radius-full); font-size: 1rem; outline: none;
-            box-shadow: var(--shadow-md); transition: border-color 0.3s;
-        }
-        .search-input:focus { border-color: var(--gold-color); }
-
-        .filter-bar {
-            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;
-        }
-        .filter-btn {
-            padding: 10px 20px; border: 2px solid var(--border-color); background: var(--white);
-            border-radius: var(--radius-full); cursor: pointer; font-weight: bold;
-            transition: all 0.3s;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary-color); color: white; border-color: var(--primary-color);
-        }
-
-        /* ============================================
-           أقسام السنوات (Sections)
-           ============================================ */
-        .year-section { max-width: 1100px; margin: 0 auto 50px auto; padding: 0 20px; animation: fadeInUp 0.8s ease; }
+        /* --- أقسام السنوات --- */
+        .year-section { max-width: 1000px; margin: 0 auto 40px auto; padding: 0 15px; }
         .year-title {
-            background: var(--primary-color); color: white; padding: 15px 40px;
-            border-radius: var(--radius-full); font-size: 1.4rem; font-weight: bold;
-            display: inline-block; margin-bottom: 20px; box-shadow: var(--shadow-md);
+            background: var(--primary-color); color: white; padding: 10px 30px;
+            border-radius: 50px; font-size: 1.3rem; font-weight: bold;
+            display: inline-block; margin-bottom: 20px;
         }
         .year-header { text-align: center; }
 
-        /* روابط التيليجرام */
-        .telegram-bar { text-align: center; margin-bottom: 30px; }
-        .tg-link {
-            display: inline-flex; align-items: center; gap: 10px; color: var(--tg-color);
-            text-decoration: none; font-weight: bold; background: #e3f2fd;
-            padding: 10px 25px; border-radius: 10px; transition: background 0.3s;
-        }
-        .tg-link:hover { background: #bbdefb; }
-
-        /* عناوين التخصصات */
-        .specialty-title {
-            color: var(--primary-color); text-align: center; margin: 30px 0 20px 0;
-            text-decoration: underline; text-decoration-color: var(--gold-color);
-        }
-
-        /* ============================================
-           شبكة المنتجات (Products Grid)
-           ============================================ */
+        /* --- المنتجات --- */
         .products-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px; justify-content: center;
+            gap: 20px; justify-content: center;
         }
         .product-card {
-            background: var(--white); border-radius: var(--radius-lg); padding: 25px;
-            box-shadow: var(--shadow-md); position: relative; overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column;
-            justify-content: space-between;
+            background: var(--white); border-radius: 15px; padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
+            border: 2px solid transparent; transition: all 0.3s;
+            position: relative;
         }
-        .product-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
-
-        /* شارات وبطاقات */
-        .card-top-accent { position: absolute; top: 0; left: 0; width: 100%; height: 6px; }
-        .paid-accent { background: var(--gold-color); }
-        .free-accent { background: var(--free-color); }
         
-        .badge {
-            position: absolute; top: 15px; left: 15px; padding: 5px 12px;
-            border-radius: 20px; font-size: 0.8rem; font-weight: bold; color: white;
+        /* تأثير عند اختيار الملخص */
+        .product-card.selected {
+            border-color: var(--accent-color);
+            background-color: #f0fff4;
         }
-        .badge-paid { background: var(--accent-color); }
-        .badge-free { background: var(--free-color); }
+        .product-card.selected::after {
+            content: '✓ تم التحديد';
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--accent-color); color: white; padding: 5px 15px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+        }
 
-        .product-title {
-            font-size: 1.2rem; font-weight: bold; margin: 25px 0 10px 0;
-            color: var(--text-primary); text-align: center; min-height: 50px;
-            display: flex; align-items: center; justify-content: center;
+        .product-title { font-size: 1.1rem; font-weight: bold; margin: 15px 0; min-height: 45px; display: flex; align-items: center; justify-content: center;}
+        .price-tag { display: block; font-weight: bold; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 15px; }
+        
+        .select-btn {
+            width: 100%; padding: 12px; border: 2px solid var(--primary-color);
+            background: white; color: var(--primary-color);
+            border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
-        .price-tag { display: block; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
-        .price-paid { color: var(--accent-color); }
-        .price-free { color: #95a5a6; text-decoration: line-through; font-size: 1rem; }
+        .product-card.selected .select-btn {
+            background: var(--accent-color); color: white; border-color: var(--accent-color);
+            content: "إلغاء";
+        }
 
-        /* أزرار البطاقة */
-        .card-btn {
-            width: 100%; padding: 12px; border: none; border-radius: 8px;
-            cursor: pointer; font-weight: bold; margin-top: 8px; font-family: inherit;
+        /* --- الشريط السفلي العائم (السلة) --- */
+        .bottom-cart-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: white; box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transform: translateY(100%); transition: transform 0.3s;
         }
-        .btn-gold { 
-            background: linear-gradient(135deg, #1e3c72, #2a5298); color: white;
-            border: 1px solid var(--gold-color); 
+        .bottom-cart-bar.visible { transform: translateY(0); }
+        
+        .cart-info { font-weight: bold; font-size: 1.1rem; }
+        .cart-total { color: var(--accent-color); font-size: 1.3rem; margin-right: 5px; }
+        
+        .checkout-btn {
+            background: var(--primary-color); color: white; border: none;
+            padding: 12px 30px; border-radius: 50px; font-weight: bold;
+            cursor: pointer; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        .btn-manual { background: #f8f9fa; border: 1px solid #ddd; color: #333; }
-        .btn-free-action { background: var(--free-color); color: white; }
-        .card-btn:hover { opacity: 0.9; }
+        .checkout-btn:hover { background: #1a252f; }
 
-        /* ============================================
-           نافذة الدفع (Modal)
-           ============================================ */
-        .payment-modal {
+        /* --- الاستمارة (Modal) --- */
+        .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); z-index: 10000; justify-content: center; align-items: center;
-            padding: 20px; backdrop-filter: blur(3px);
+            background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;
+            padding: 20px;
         }
-        .payment-content {
+        .modal-content {
             background: white; width: 100%; max-width: 500px; border-radius: 20px;
-            padding: 30px; text-align: right; position: relative; animation: slideUp 0.4s ease;
+            padding: 30px; text-align: right; max-height: 90vh; overflow-y: auto;
+            animation: slideUp 0.4s ease;
         }
-        .close-btn {
-            position: absolute; top: 15px; left: 15px; font-size: 24px; cursor: pointer;
-            background: none; border: none; color: #999;
-        }
-        .info-row {
-            background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 10px;
-            border-right: 4px solid var(--gold-color);
-        }
-        .copy-text {
-            font-family: monospace; background: #eee; padding: 2px 8px; border-radius: 4px;
-            color: #d63384; font-weight: bold; direction: ltr; display: inline-block;
-        }
-        .copy-btn {
-            font-size: 0.8rem; padding: 2px 8px; background: var(--primary-color);
-            color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;
-        }
-
-        /* ============================================
-           الفوتر (Footer)
-           ============================================ */
-        footer {
-            background: var(--primary-color); color: rgba(255,255,255,0.8);
-            padding: 40px 20px; text-align: center; margin-top: 50px;
-        }
-        footer p { font-size: 0.9rem; }
-
-        /* Animations */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo-img { width: 120px; height: 120px; }
-            h1 { font-size: 1.6rem; }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        .form-input {
+            width: 100%; padding: 12px; border: 1px solid #ddd;
+            border-radius: 8px; font-family: inherit; font-size: 1rem;
+        }
+        .file-upload-wrapper {
+            border: 2px dashed #ddd; padding: 20px; text-align: center;
+            border-radius: 10px; margin-top: 10px; cursor: pointer;
+            background: #fafafa;
+        }
+        .file-upload-wrapper:hover { border-color: var(--primary-color); }
+        
+        .submit-order-btn {
+            width: 100%; padding: 15px; background: var(--accent-color);
+            color: white; border: none; border-radius: 10px; font-weight: bold;
+            font-size: 1.1rem; margin-top: 20px; cursor: pointer;
+        }
+        
+        .close-modal {
+            float: left; font-size: 24px; cursor: pointer; color: #999;
+        }
+
+        /* --- معلومات الدفع --- */
+        .payment-details {
+            background: #eef2f5; padding: 15px; border-radius: 10px;
+            margin-bottom: 20px; font-size: 0.9rem;
+            border-right: 4px solid var(--gold-color);
+        }
+        .copy-text { 
+            font-family: monospace; background: white; padding: 2px 5px; 
+            border-radius: 4px; color: #c0392b; font-weight: bold; 
+        }
+
+        /* Telegram Link Style */
+        .tg-link {
+            display: inline-block; color: #0088cc; text-decoration: none;
+            background: #e3f2fd; padding: 8px 20px; border-radius: 8px;
+            font-weight: bold; margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div id="initial-loader">
-        <div class="loader-logo">⚖️</div>
-        <div class="loader-spinner"></div>
-        <p style="color: white; margin-top: 20px; font-weight: bold;">جاري تحميل المكتبة...</p>
-    </div>
-
     <header>
-        <img src="LAW.jpeg" alt="Law by Mouhamed & Swima" class="logo-img">
+        <img src="LAW.jpeg" alt="Logo" class="logo-img">
         <h1>Law by Mouhamed & Swima</h1>
-        <div class="subtitle">ملخصات قانونية شاملة لطلبة الحقوق</div>
-
         <div class="social-header">
-            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" class="social-btn btn-insta">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                Instagram
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="social-btn btn-fb">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                Facebook
-            </a>
+            <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" class="social-btn btn-insta">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="social-btn btn-fb">Facebook</a>
         </div>
     </header>
 
-    <div class="search-bar-container">
-        <input type="text" class="search-input" id="searchInput" placeholder="🔍 ابحث عن اسم المادة أو الملخص..." onkeyup="filterProducts()">
-    </div>
-
-    <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterYear('all')">الكل</button>
-        <button class="filter-btn" onclick="filterYear('year1')">السنة الأولى</button>
-        <button class="filter-btn" onclick="filterYear('year2')">السنة الثانية</button>
-        <button class="filter-btn" onclick="filterYear('year3')">السنة الثالثة</button>
-    </div>
-
-    <div class="year-section" id="year1">
+    <div class="year-section">
         <div class="year-header">
             <div class="year-title">السنة الأولى ليسانس</div>
+            <br>
+            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" class="tg-link">مجموعة التيليجرام (1ère année)</a>
         </div>
-        <div class="telegram-bar">
-            <a href="https://t.me/+GEEk2vlvw3w3NWQ0" target="_blank" class="tg-link">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.75-.33 1.42.2 1.17 1.43L18.27 17.9c-.12.64-.62.75-1.27.38l-3.52-2.6-1.7 1.67c-.19.19-.35.35-.72.35l-.26-3.05z"/></svg>
-                انضم لمجموعة الدراسة (1ère année)
-            </a>
-        </div>
-        
         <div class="products-grid">
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="1" data-name="القانون الدستوري" data-price="400">
                 <div class="product-title">القانون الدستوري</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="2" data-name="المدخل للعلوم القانونية" data-price="400">
                 <div class="product-title">المدخل للعلوم القانونية</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-             <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="3" data-name="التنظيم القضائي" data-price="400">
                 <div class="product-title">ملخص التنظيم القضائي</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
-            </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent free-accent"></div>
-                <span class="badge badge-free">مجاني</span>
-                <div class="product-title">ملخص تاريخ النظم</div>
-                <span class="price-tag price-free">مجاني</span>
-                <button class="card-btn btn-free-action" onclick="contactSupport()">📥 طلب الملخص</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
-    <div class="year-section" id="year2">
+    <div class="year-section">
         <div class="year-header">
             <div class="year-title">السنة الثانية ليسانس</div>
+            <br>
+            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" class="tg-link">مجموعة التيليجرام (2ème année)</a>
         </div>
-        <div class="telegram-bar">
-            <a href="https://t.me/+d19xnYNaGQNiZjA0" target="_blank" class="tg-link">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.75-.33 1.42.2 1.17 1.43L18.27 17.9c-.12.64-.62.75-1.27.38l-3.52-2.6-1.7 1.67c-.19.19-.35.35-.72.35l-.26-3.05z"/></svg>
-                انضم لمجموعة الدراسة (2ème année)
-            </a>
-        </div>
-
         <div class="products-grid">
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="4" data-name="القانون المدني" data-price="400">
                 <div class="product-title">ملخص القانون المدني</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="5" data-name="القانون التجاري" data-price="400">
                 <div class="product-title">ملخص القانون التجاري</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-             <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="6" data-name="قانون العقوبات" data-price="400">
                 <div class="product-title">ملخص قانون العقوبات</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء (CCP/Baridi)</button>
-            </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent free-accent"></div>
-                <span class="badge badge-free">مجاني</span>
-                <div class="product-title">ملخص قانون الأسرة</div>
-                <span class="price-tag price-free">مجاني</span>
-                <button class="card-btn btn-free-action" onclick="contactSupport()">📥 طلب الملخص</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
-    <div class="year-section" id="year3">
+    <div class="year-section">
         <div class="year-header">
             <div class="year-title">السنة الثالثة ليسانس</div>
+            <br>
+            <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" class="tg-link">مجموعة التيليجرام (3ème année)</a>
         </div>
-        <div class="telegram-bar">
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-                <a href="https://t.me/+nb985l4HSXliYzZk" target="_blank" class="tg-link">
-                    مجموعة 3ème Public
-                </a>
-                <a href="https://t.me/+K1062SbuRe4yYjJk" target="_blank" class="tg-link" style="background: #e8eaf6; color: #3949ab;">
-                    🔒 مجموعة 3ème Privé
-                </a>
-            </div>
-        </div>
-
-        <div class="specialty-title">تخصص قانون عام</div>
         <div class="products-grid">
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="7" data-name="الوظيفة العمومية" data-price="400">
                 <div class="product-title">قانون الوظيفة العمومية</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="8" data-name="العلاقات الدولية" data-price="400">
                 <div class="product-title">العلاقات الدولية</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-             <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
-                <div class="product-title">القرارات والعقود الإدارية</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
-            </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent free-accent"></div>
-                <span class="badge badge-free">مجاني</span>
-                <div class="product-title">المالية العامة / المقارن</div>
-                <span class="price-tag price-free">مجاني</span>
-                <button class="card-btn btn-free-action" onclick="contactSupport()">📥 طلب الملخص</button>
-            </div>
-        </div>
-
-        <div class="specialty-title">تخصص قانون خاص</div>
-        <div class="products-grid">
-             <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+            <div class="product-card" data-id="9" data-name="العقود الخاصة" data-price="400">
                 <div class="product-title">العقود الخاصة</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
-                <div class="product-title">القانون الدولي الخاص</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
-            </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
+             <div class="product-card" data-id="10" data-name="الشركات التجارية" data-price="400">
                 <div class="product-title">الشركات التجارية</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
-            </div>
-             <div class="product-card search-item">
-                <div class="card-top-accent paid-accent"></div>
-                <span class="badge badge-paid">مدفوع</span>
-                <div class="product-title">المواريث / طرق التنفيذ</div>
-                <span class="price-tag price-paid">400 دج</span>
-                <button class="card-btn btn-gold" onclick="payWithEdahabia()">💳 البطاقة الذهبية</button>
-                <button class="card-btn btn-manual" onclick="showPayment()">شراء</button>
-            </div>
-            <div class="product-card search-item">
-                <div class="card-top-accent free-accent"></div>
-                <span class="badge badge-free">مجاني</span>
-                <div class="product-title">القانون الجزائي</div>
-                <span class="price-tag price-free">مجاني</span>
-                <button class="card-btn btn-free-action" onclick="contactSupport()">📥 طلب الملخص</button>
+                <span class="price-tag">400 دج</span>
+                <button class="select-btn" onclick="toggleCart(this)">إضافة للطلب</button>
             </div>
         </div>
     </div>
 
-    <div id="payment-modal" class="payment-modal">
-        <div class="payment-content">
-            <button class="close-btn" onclick="closePayment()">&times;</button>
-            <h3 style="color: var(--primary-color); text-align: center; margin-top: 0;">🏦 معلومات الدفع</h3>
-            <p style="text-align: center; color: #666; font-size: 0.9rem;">قم بالتحويل ثم أرسل صورة الوصل</p>
-            
-            <div class="info-row">
-                <strong>📲 تطبيق بريدي موب (BaridiMob):</strong><br>
-                RIP: <span class="copy-text">00799999002789142280</span>
-                <button class="copy-btn" onclick="copyToClipboard('00799999002789142280')">نسخ</button>
+    <div id="bottomCart" class="bottom-cart-bar">
+        <div class="cart-info">
+            المجموع: <span id="totalPrice" class="cart-total">0</span> دج
+            <span style="font-size: 0.9rem; color: #666;">(<span id="itemCount">0</span> ملخص)</span>
+        </div>
+        <button class="checkout-btn" onclick="openModal()">إتمام الطلب ✅</button>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">تأكيد الطلب</h2>
+
+            <div class="payment-details">
+                <strong>معلومات الدفع:</strong><br>
+                RIP: <span class="copy-text">00799999002789142280</span><br>
+                CCP: <span class="copy-text">0027891422</span> Clé: 80<br>
+                باسم: Djemaa Mouhamed Araffet
             </div>
 
-            <div class="info-row">
-                <strong>🏤 مكتب البريد (La Poste):</strong><br>
-                CCP: <span class="copy-text">0027891422</span> Clé: <span class="copy-text">80</span>
-                <button class="copy-btn" onclick="copyToClipboard('0027891422')">نسخ</button>
-            </div>
-
-            <div class="info-row">
-                <strong>👤 صاحب الحساب:</strong><br>
-                Djemaa Mouhamed Araffet<br>
-                <small>العنوان: Laebidi keziz, Oulad Rchache, Khenchela</small>
-            </div>
-
-            <div style="text-align: center; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
-                <p style="color: #c0392b; font-weight: bold; font-size: 0.9rem;">⚠️ بعد الدفع، أرسل صورة الوصل هنا:</p>
-                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
-                    <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="social-btn btn-fb" style="flex: 1; justify-content: center;">فيسبوك</a>
-                    <a href="https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3" target="_blank" class="social-btn btn-insta" style="flex: 1; justify-content: center;">انستغرام</a>
+            <form id="checkoutForm" onsubmit="submitOrder(event)">
+                <div style="display: flex; gap: 10px;">
+                    <div class="form-group" style="flex:1">
+                        <label class="form-label">اللقب</label>
+                        <input type="text" id="lastname" class="form-input" required placeholder="لقبك">
+                    </div>
+                    <div class="form-group" style="flex:1">
+                        <label class="form-label">الاسم</label>
+                        <input type="text" id="firstname" class="form-input" required placeholder="اسمك">
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label class="form-label">الولاية</label>
+                    <input type="text" id="wilaya" class="form-input" required placeholder="مثال: الجزائر">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">السنة الدراسية</label>
+                    <select id="year" class="form-input">
+                        <option value="السنة الأولى">السنة الأولى</option>
+                        <option value="السنة الثانية">السنة الثانية</option>
+                        <option value="السنة الثالثة">السنة الثالثة</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">البريد الإلكتروني (لاستلام الملف)</label>
+                    <input type="email" id="email" class="form-input" required placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">إرفاق صورة الوصل (Reçu)</label>
+                    <div class="file-upload-wrapper" onclick="document.getElementById('receiptFile').click()">
+                        <span style="font-size: 2rem;">📷</span><br>
+                        اضغط هنا لاختيار صورة الوصل
+                        <input type="file" id="receiptFile" style="display: none;" accept="image/*" onchange="fileSelected(this)">
+                        <div id="fileName" style="margin-top: 5px; color: var(--accent-color); font-size: 0.9rem;"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-order-btn">إرسال الطلب عبر ماسنجر 📨</button>
+                <p style="text-align: center; font-size: 0.8rem; margin-top: 10px; color: #666;">
+                    سيتم تحويلك لفيسبوك لإرفاق الصورة هناك.
+                </p>
+            </form>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Law by Mouhamed & Swima. جميع الحقوق محفوظة.</p>
-    </footer>
 
     <script>
-        // إخفاء شاشة التحميل
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('initial-loader').classList.add('hidden');
-            }, 1000);
-        };
+        let cart = [];
+        const bottomCart = document.getElementById('bottomCart');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const itemCountEl = document.getElementById('itemCount');
 
-        // التحكم في نافذة الدفع
-        function showPayment() {
-            document.getElementById('payment-modal').style.display = 'flex';
-        }
+        // دالة اختيار/إلغاء الملخص
+        function toggleCart(btn) {
+            const card = btn.parentElement;
+            const id = card.getAttribute('data-id');
+            const name = card.getAttribute('data-name');
+            const price = parseInt(card.getAttribute('data-price'));
 
-        function closePayment() {
-            document.getElementById('payment-modal').style.display = 'none';
-        }
+            // التحقق هل هو موجود في السلة
+            const exists = cart.find(item => item.id === id);
 
-        window.onclick = function(event) {
-            var modal = document.getElementById('payment-modal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // الدفع بالبطاقة الذهبية (رسالة توجيه)
-        function payWithEdahabia() {
-            alert("للدفع بالبطاقة الذهبية، يرجى استخدام تطبيق بريدي موب والتحويل إلى الـ RIP الموجود في قائمة الدفع.");
-            showPayment();
-        }
-
-        // رابط الدعم المجاني
-        function contactSupport() {
-            if(confirm("للحصول على الملخصات المجانية، يرجى مراسلتنا عبر فيسبوك أو انستغرام.")) {
-                window.open("https://www.instagram.com/law_by_mohamed_swima?igsh=Mnp5dmozcW9kb3B3", "_blank");
-            }
-        }
-
-        // نسخ النصوص للحافظة
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                alert("تم نسخ الرقم: " + text);
-            }, function(err) {
-                console.error('فشل النسخ', err);
-            });
-        }
-
-        // فلترة السنوات
-        function filterYear(yearId) {
-            const sections = ['year1', 'year2', 'year3'];
-            const buttons = document.getElementsByClassName('filter-btn');
-
-            // تحديث الأزرار
-            for (let btn of buttons) { btn.classList.remove('active'); }
-            event.target.classList.add('active');
-
-            if (yearId === 'all') {
-                sections.forEach(id => document.getElementById(id).style.display = 'block');
+            if (exists) {
+                // حذف من السلة
+                cart = cart.filter(item => item.id !== id);
+                card.classList.remove('selected');
+                btn.innerText = "إضافة للطلب";
             } else {
-                sections.forEach(id => {
-                    document.getElementById(id).style.display = (id === yearId) ? 'block' : 'none';
-                });
+                // إضافة للسلة
+                cart.push({ id, name, price });
+                card.classList.add('selected');
+                btn.innerText = "إلغاء";
+            }
+
+            updateCartUI();
+        }
+
+        // تحديث واجهة السلة
+        function updateCartUI() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalPriceEl.innerText = total;
+            itemCountEl.innerText = cart.length;
+
+            if (cart.length > 0) {
+                bottomCart.classList.add('visible');
+            } else {
+                bottomCart.classList.remove('visible');
             }
         }
 
-        // البحث السريع
-        function filterProducts() {
-            var input = document.getElementById('searchInput');
-            var filter = input.value.toUpperCase();
-            var cards = document.getElementsByClassName('search-item');
+        // التحكم في النافذة المنبثقة
+        function openModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
 
-            for (var i = 0; i < cards.length; i++) {
-                var title = cards[i].getElementsByClassName('product-title')[0];
-                var txtValue = title.textContent || title.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
+        // عرض اسم الملف المختار
+        function fileSelected(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('fileName').innerText = "تم اختيار: " + input.files[0].name;
             }
+        }
+
+        // إرسال الطلب
+        function submitOrder(e) {
+            e.preventDefault();
+
+            // جمع البيانات
+            const lastname = document.getElementById('lastname').value;
+            const firstname = document.getElementById('firstname').value;
+            const wilaya = document.getElementById('wilaya').value;
+            const year = document.getElementById('year').value;
+            const email = document.getElementById('email').value;
+            
+            // قائمة الملخصات
+            const orderItems = cart.map(item => `- ${item.name}`).join('\n');
+            const total = totalPriceEl.innerText;
+
+            // تجهيز نص الرسالة
+            const message = `
+السلام عليكم، أريد طلب الملخصات التالية:
+${orderItems}
+المجموع: ${total} دج
+
+--- معلوماتي ---
+الاسم: ${firstname} ${lastname}
+الولاية: ${wilaya}
+السنة: ${year}
+الإيميل: ${email}
+
+(مرفق صورة الوصل 👇)
+            `;
+
+            // نسخ النص للحافظة (Clipboard)
+            navigator.clipboard.writeText(message).then(() => {
+                alert("✅ تم نسخ معلومات طلبك!\n\nسيتم فتح الماسنجر الآن..\n1. يرجى عمل 'لصق' (Paste) للمعلومات.\n2. إرفاق صورة الوصل يدوياً.");
+                
+                // التوجيه إلى ماسنجر
+                // استبدل الرابط برابط صفحتك
+                window.location.href = "https://m.me/61582579114594"; 
+            }).catch(err => {
+                // في حالة فشل النسخ التلقائي
+                alert("حدث خطأ في النسخ التلقائي، يرجى التواصل معنا يدوياً.");
+                window.location.href = "https://m.me/61582579114594";
+            });
         }
     </script>
 
