@@ -3,251 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملخصات القانون - الأستاذ جمعة محمد عرفات</title>
+    <meta name="description" content="مكتبة الأستاذ جمعة محمد عرفات - ملخصات قانونية شاملة (مدني، تجاري) لطلبة الحقوق 2026">
+    <meta name="theme-color" content="#1a365d">
+    
+    <title>ملخصات القانون | الأستاذ جمعة محمد عرفات</title>
+    
+    <link rel="shortcut icon" href="LAW.jpeg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- المتغيرات العامة --- */
         :root {
-            --primary-color: #2c3e50;
+            --primary-color: #1a365d;
             --accent-color: #27ae60;
-            --bg-color: #f4f4f9;
-            --gold-color: #d4af37;
+            --bg-color: #f8fafc;
+            --gold-grad: linear-gradient(135deg, #d4af37 0%, #f6d365 50%, #d4af37 100%);
             --fb-color: #1877f2;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
+
+        /* --- التنسيقات الأساسية --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', sans-serif;
             background-color: var(--bg-color);
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            color: #2d3748;
             text-align: center;
+            line-height: 1.6;
+        }
+
+        /* --- الرأس (Header) --- */
+        header {
+            background: white;
+            padding: 40px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            margin-bottom: 50px;
+        }
+
+        .logo-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            object-fit: cover;
+            transition: transform 0.3s;
         }
         
-        /* تنسيق الشعار والعنوان */
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .logo-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%; /* يجعل الصورة دائرية */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            border: 4px solid var(--gold-color);
-            object-fit: cover;
-            margin-bottom: 20px;
-            background-color: white;
-        }
-        h1 { color: var(--primary-color); margin: 10px 0; font-size: 1.8rem; }
-        p { color: #666; }
+        .logo-img:hover { transform: rotate(5deg); }
 
-        /* تنسيق المنتجات */
+        h1 {
+            color: var(--primary-color);
+            margin: 15px 0 5px 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- المنتجات --- */
         .products-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
+            padding: 0 20px;
+            margin-bottom: 60px;
         }
+
         .product-card {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 300px; /* عرض مناسب للهاتف */
-            padding: 25px;
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            width: 320px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #edf2f7;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-top: 5px solid var(--primary-color);
-        }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-icon { font-size: 50px; margin-bottom: 10px; }
-        .product-title { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 10px; }
-        .price-tag { 
-            background-color: #e8f5e9; 
-            color: var(--accent-color); 
-            padding: 8px 20px; 
-            border-radius: 20px; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            display: inline-block; 
-            margin: 10px 0 20px 0; 
         }
 
-        /* تنسيق الأزرار */
-        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
-        
-        .buy-btn { 
-            background-color: var(--primary-color); 
-            color: white; 
-            border: none; 
-            padding: 12px 20px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            transition: background 0.3s;
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
-        .buy-btn:hover { background-color: #1a252f; }
 
-        .edahabia-btn { 
-            background: linear-gradient(135deg, #1e3c72, #2a5298); 
-            color: #fff; 
-            border: 2px solid var(--gold-color); 
-            padding: 12px 20px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
-            font-weight: bold;
-            transition: transform 0.2s;
+        .product-card::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; width: 100%; height: 5px;
+            background: var(--gold-grad);
         }
-        .edahabia-btn:hover { transform: scale(1.02); box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
-        .edahabia-btn::before { content: "💳"; }
 
-        /* تنسيق قسم معلومات الدفع */
-        .payment-info {
-            background-color: white;
-            border: 2px dashed var(--primary-color);
-            max-width: 500px;
-            margin: 50px auto 20px auto;
-            padding: 25px;
-            border-radius: 15px;
+        .icon-circle {
+            width: 70px; height: 70px;
+            background: #ebf8ff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px auto;
+            font-size: 35px;
+        }
+
+        .product-title {
+            font-size: 1.4rem; font-weight: 700;
+            margin-bottom: 10px; color: var(--primary-color);
+        }
+
+        .price-badge {
+            background-color: #f0fff4; color: var(--accent-color);
+            padding: 8px 25px; border-radius: 50px;
+            font-weight: 700; font-size: 1.2rem;
+            display: inline-block; margin-bottom: 25px;
+            border: 1px solid #c6f6d5;
+        }
+
+        /* --- الأزرار --- */
+        .btn-group { display: flex; flex-direction: column; gap: 15px; }
+
+        button {
+            border: none; padding: 14px; border-radius: 12px;
+            font-family: 'Cairo', sans-serif; font-weight: 700;
+            cursor: pointer; font-size: 1rem;
+            transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        button:active { transform: scale(0.98); }
+
+        .edahabia-btn {
+            background: var(--gold-grad); color: #1a365d;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .edahabia-btn:hover { box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+
+        .manual-btn {
+            background: white; color: var(--primary-color);
+            border: 2px solid #e2e8f0;
+        }
+        .manual-btn:hover { background: #f7fafc; border-color: var(--primary-color); }
+
+        /* --- نافذة الدفع --- */
+        .payment-modal {
+            background: white;
+            max-width: 550px;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 0;
+            display: none;
             text-align: right;
-            display: none; /* مخفي افتراضياً */
+            border: 1px solid #e2e8f0;
+            animation: slideUp 0.5s ease-out;
+            overflow: hidden;
         }
-        .payment-info.active { display: block; animation: fadeIn 0.6s; }
-        
-        .step-box { 
-            margin-bottom: 15px; 
-            padding: 12px; 
-            background-color: #f8f9fa; 
+
+        .payment-modal.active { display: block; }
+
+        .modal-header {
+            background: var(--primary-color); color: white;
+            padding: 20px; text-align: center;
+        }
+
+        .modal-body { padding: 30px; }
+
+        .info-row {
+            background: #f8fafc;
+            border-right: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 8px;
-            border-right: 4px solid var(--accent-color);
-        }
-        .copy-box { 
-            background: #e9ecef; 
-            padding: 3px 8px; 
-            border-radius: 4px; 
-            font-family: 'Courier New', monospace; 
-            font-weight: bold; 
-            color: #d63384;
-            direction: ltr; 
-            display: inline-block; 
-        }
-
-        /* زر الفيسبوك */
-        .fb-contact-btn {
-            display: inline-flex;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             gap: 10px;
-            background-color: var(--fb-color);
-            color: white;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 25px;
-            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
-            transition: background-color 0.3s;
         }
-        .fb-contact-btn:hover { background-color: #155cb1; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .info-text { flex-grow: 1; }
 
-        /* تذييل الصفحة */
-        footer { margin-top: 50px; color: #888; font-size: 0.9rem; }
+        .copy-text {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #2d3748;
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .copy-btn {
+            background: white;
+            border: 1px solid #cbd5e0;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            color: #4a5568;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            width: auto;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .copy-btn:hover {
+            background: #ebf8ff;
+            color: var(--fb-color);
+            border-color: var(--fb-color);
+        }
+
+        .alert-box {
+            text-align: center; margin-top: 25px; padding-top: 20px;
+            border-top: 2px dashed #e2e8f0;
+        }
+
+        .fb-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background-color: var(--fb-color); color: white;
+            text-decoration: none; padding: 15px 35px;
+            border-radius: 50px; font-weight: bold;
+            margin-top: 15px; box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
+            transition: 0.3s;
+        }
+        .fb-btn:hover { background-color: #1465d1; transform: scale(1.05); }
+
+        footer {
+            margin-top: 80px; padding: 30px;
+            color: #a0aec0; font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* تعديلات للهاتف */
+        @media (max-width: 600px) {
+            .logo-img { width: 100px; height: 100px; }
+            .product-card { width: 100%; }
+            .info-row { flex-direction: column; align-items: flex-start; }
+            .copy-btn { width: 100%; margin-top: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="LAW.jpeg" alt="شعار المكتب القانوني" class="logo-img">
-        <h1>📚 مكتبة الأستاذ جمعة محمد عرفات</h1>
-        <p>ملخصات قانونية شاملة للنجاح والتميز</p>
+        <img src="LAW.jpeg" alt="شعار الأستاذ جمعة" class="logo-img">
+        <h1>مكتبة الأستاذ جمعة محمد عرفات</h1>
+        <p class="subtitle">ملخصات قانونية شاملة ومبسطة لضمان التفوق الدراسي</p>
     </header>
 
     <div class="products-container">
-        
         <div class="product-card">
             <div>
-                <div class="product-icon">⚖️</div>
-                <div class="product-title">ملخص القانون المدني</div>
-                <div class="price-tag">400 دج</div>
+                <div class="icon-circle">⚖️</div>
+                <div class="product-title">القانون المدني</div>
+                <p style="color: #718096; margin-bottom: 20px;">شرح وافي لأهم المواد والمصطلحات القانونية بطريقة مبسطة.</p>
+                <div class="price-badge">400 دج</div>
             </div>
             <div class="btn-group">
-                <button class="edahabia-btn" onclick="payWithEdahabia()">الدفع بالبطاقة الذهبية</button>
-                <button class="buy-btn" onclick="showManualPayment()">تحويل CCP / BaridiMob</button>
+                <button class="edahabia-btn" onclick="payWithEdahabia()">
+                    <span>الدفع بالبطاقة الذهبية</span>
+                </button>
+                <button class="manual-btn" onclick="showManualPayment()">
+                    <span>تحويل بريدي / CCP</span>
+                </button>
             </div>
         </div>
 
         <div class="product-card">
             <div>
-                <div class="product-icon">💼</div>
-                <div class="product-title">ملخص القانون التجاري</div>
-                <div class="price-tag">400 دج</div>
+                <div class="icon-circle">💼</div>
+                <div class="product-title">القانون التجاري</div>
+                <p style="color: #718096; margin-bottom: 20px;">ملخص شامل للأعمال التجارية، الشركات، والعقود التجارية.</p>
+                <div class="price-badge">400 دج</div>
             </div>
             <div class="btn-group">
-                <button class="edahabia-btn" onclick="payWithEdahabia()">الدفع بالبطاقة الذهبية</button>
-                <button class="buy-btn" onclick="showManualPayment()">تحويل CCP / BaridiMob</button>
+                <button class="edahabia-btn" onclick="payWithEdahabia()">
+                    <span>الدفع بالبطاقة الذهبية</span>
+                </button>
+                <button class="manual-btn" onclick="showManualPayment()">
+                    <span>تحويل بريدي / CCP</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <div id="manual-payment" class="payment-info">
-        <h3 style="text-align: center; color: var(--primary-color);">🏦 معلومات الدفع</h3>
-        <p style="text-align: center; font-size: 0.9rem;">يرجى تحويل المبلغ إلى الحساب التالي:</p>
-        
-        <div class="step-box">
-            <strong>1️⃣ تطبيق BaridiMob (بريدي موب):</strong><br>
-            <span style="display: block; direction: ltr; text-align: left; margin-top: 5px;">
-                RIP: <span class="copy-box">00799999002789142280</span>
-            </span>
+    <div id="payment-section" class="payment-modal">
+        <div class="modal-header">
+            <h3 style="margin:0;">تفاصيل الدفع وتأكيد الطلب</h3>
         </div>
+        <div class="modal-body">
+            <p style="color: #4a5568; margin-bottom: 20px;">اضغط على زر "نسخ" لنقل الرقم للتطبيق مباشرة:</p>
 
-        <div class="step-box">
-            <strong>2️⃣ مكتب البريد (La Poste):</strong><br>
-            <span style="display: block; direction: ltr; text-align: left; margin-top: 5px;">
-                CCP: <span class="copy-box">0027891422</span> Clé: <span class="copy-box">80</span>
-            </span>
-        </div>
+            <div class="info-row">
+                <div class="info-text">
+                    <strong style="color:var(--primary-color)">بريدي موب (BaridiMob):</strong><br>
+                    RIP: <span id="rip-code" class="copy-text">00799999002789142280</span>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard('rip-code', this)">نسخ 📋</button>
+            </div>
 
-        <div class="step-box">
-            <strong>👤 صاحب الحساب:</strong><br>
-            Djemaa Mouhamed Araffet<br>
-            <span style="font-size: 0.85rem; color: #555;">العنوان: Laebidi keziz, Oulad Rchache, Khenchela</span>
-        </div>
-        
-        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="color: #c0392b; font-weight: bold;">⚠️ خطوة أخيرة هامة:</p>
-            <p>بعد إتمام الدفع، التقط صورة للوصل واضغط على الزر أدناه لإرسالها واستلام ملفك PDF فوراً.</p>
-            
-            <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="fb-contact-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                اضغط هنا لإرسال الوصل (فيسبوك)
-            </a>
+            <div class="info-row">
+                <div class="info-text">
+                    <strong style="color:var(--primary-color)">مكتب البريد (CCP):</strong><br>
+                    CCP: <span id="ccp-code" class="copy-text">0027891422</span> Clé: 80
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard('ccp-code', this)">نسخ 📋</button>
+            </div>
+
+            <div class="info-row" style="display: block;">
+                <strong style="color:var(--primary-color)">صاحب الحساب:</strong><br>
+                Djemaa Mouhamed Araffet<br>
+                <small style="color:#718096">العنوان: Laebidi keziz, Oulad Rchache, Khenchela</small>
+            </div>
+
+            <div class="alert-box">
+                <p style="color: #e53e3e; font-weight: bold;">⚠️ خطوة أخيرة هامة:</p>
+                <p>بعد التحويل، أرسل صورة الوصل (Reçu) عبر فيسبوك لاستلام الملف فوراً:</p>
+                
+                <a href="https://www.facebook.com/profile.php?id=61582579114594" target="_blank" class="fb-btn">
+                    <svg fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    إرسال الوصل الآن
+                </a>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 جميع الحقوق محفوظة للأستاذ جمعة محمد عرفات</p>
+        <p>جميع الحقوق محفوظة &copy; 2026 للأستاذ جمعة محمد عرفات</p>
     </footer>
 
     <script>
         function showManualPayment() {
-            var paymentDiv = document.getElementById('manual-payment');
-            paymentDiv.classList.add('active');
-            paymentDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const section = document.getElementById('payment-section');
+            section.classList.add('active');
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
 
         function payWithEdahabia() {
-            // رسالة توجيهية لأن الدفع المباشر يتطلب بوابة دفع
-            alert("للدفع بالبطاقة الذهبية، يرجى استخدام تطبيق بريدي موب والتحويل إلى الـ RIP الموجود في الأسفل.\n\nسيتم نقلك الآن إلى معلومات الحساب.");
+            alert("تسهيلاً عليكم، يتم الدفع حالياً عبر التحويل المباشر (BaridiMob).\n\nسيتم نقلك الآن لبيانات الحساب لنسخها.");
             showManualPayment();
         }
-    </script>
 
+        function copyToClipboard(elementId, btnElement) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            const originalText = btnElement.innerText;
+            const originalColor = btnElement.style.backgroundColor;
+
+            // التحقق من دعم المتصفح
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showSuccess(btnElement, originalText);
+                }).catch(() => {
+                    manualCopyFallback(textToCopy);
+                });
+            } else {
+                // خطة بديلة للمتصفحات القديمة
+                manualCopyFallback(textToCopy);
+            }
+        }
+
+        function showSuccess(btn, originalText) {
+            btn.innerText = "تم النسخ ✅";
+            btn.style.backgroundColor = "#e6fffa";
+            btn.style.color = "#27ae60";
+            btn.style.borderColor = "#27ae60";
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = "white";
+                btn.style.color = "#4a5568";
+                btn.style.borderColor = "#cbd5e0";
+            }, 2000);
+        }
+
+        function manualCopyFallback(text) {
+            prompt("الرجاء نسخ الرقم يدوياً (Ctrl+C):", text);
+        }
+    </script>
 </body>
 </html>
